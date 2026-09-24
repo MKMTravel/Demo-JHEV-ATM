@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dashboard Admin | Program Umrah Warga Veteran</title>
+<meta name="theme-color" content="#246399">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --red:#BB0000; --red-2:#8F0000; --blue:#246399; --blue-2:#194873; --blue-soft:#EAF1F8; --red-soft:#FBEAEA;
+  --ink:#16202B; --ink-2:#3C4957; --soft:#6B7885; --line:#DFE5EB; --line-2:#EEF2F6; --paper:#fff; --bg:#F4F7FA; --cream:#FAFCFE;
+  --gold:#B8860B; --green:#157347; --green-bg:#E6F2EC; --amber:#8A5A00; --amber-bg:#FFF3D9; --purple:#5B3B9B; --purple-bg:#EFEAFA;
+  --d:'Plus Jakarta Sans',system-ui,sans-serif; --b:'Figtree',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{overflow-x:hidden}
+body{font-family:var(--b);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--d);font-weight:800;line-height:1.2}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+a{color:var(--blue)}
+.top{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.top .in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px}
+.crest{width:46px;height:46px;flex:none;object-fit:contain}
+.brand b{display:block;font-family:var(--d);font-weight:800;font-size:15px;line-height:1.15}
+.brand small{display:block;font-size:11.5px;color:var(--soft)}
+.sp{flex:1}
+.top nav{display:flex;gap:6px;flex-wrap:wrap}
+.top nav a,.top nav button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;color:var(--ink)}
+.top nav a:hover,.top nav button:hover{border-color:var(--ink-2)}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 20px 60px}
+.narrow{max-width:620px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;padding:13px 18px;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;color:var(--ink)}
+.btn:hover{border-color:var(--ink-2)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}.btn.red:hover{background:var(--red-2)}
+.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}.btn.blue:hover{background:var(--blue-2)}
+.btn.green{background:var(--green);border-color:var(--green);color:#fff}
+.btn.sm{width:auto;padding:7px 13px;font-size:13px;border-radius:8px}
+.btn[disabled]{opacity:.6;cursor:default}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px}
+.card h2{font-size:22px;margin-bottom:4px}
+.card .sub{color:var(--soft);font-size:14px;margin-bottom:20px}
+.sec{font-family:var(--d);font-weight:700;font-size:15px;margin:22px 0 12px;padding-top:16px;border-top:1px solid var(--line-2)}
+.sec.first{border:0;padding:0;margin-top:0}
+.f{margin-bottom:16px}
+.f label,.f .lab{display:block;font-weight:600;font-size:14px;margin-bottom:5px}
+.f small{display:block;color:var(--soft);font-size:12.5px;margin-top:4px}
+input[type=text],input[type=tel],input[type=email],input[type=search],select,textarea{width:100%;font-size:16px;background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:11px 13px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);background:#fff}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.phone{display:flex}
+.phone span{display:flex;align-items:center;padding:0 12px;background:var(--blue-soft);border:1px solid var(--line);border-right:0;border-radius:9px 0 0 9px;font-weight:600;font-size:14px}
+.phone input{border-radius:0 9px 9px 0}
+.err{display:none;color:var(--red);font-size:12.5px;margin-top:4px}
+.f.bad input,.f.bad select,.f.bad textarea,.f.bad .mp-btn{border-color:var(--red)}
+.f.bad .err{display:block}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opts label{position:relative;display:flex}
+.opts input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opts span{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--line);background:var(--cream);border-radius:9px;padding:11px 8px;font-size:13.5px;font-weight:600}
+.opts input:checked+span{border-color:var(--blue);background:var(--blue-soft);color:var(--blue-2)}
+.mp-btn{width:100%;display:flex;justify-content:space-between;align-items:center;font-size:16px;background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:11px 13px;cursor:pointer;text-align:left}
+.mp-btn.empty span{color:#8C99A6}
+.mp-btn i{width:9px;height:9px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg) translateY(-3px)}
+.mp{margin-top:8px;border:1px solid var(--line);border-radius:11px;background:#fff;padding:12px}
+.mp-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.mp-h b{font-family:var(--d);font-size:17px}
+.mp-h button{width:36px;height:36px;border-radius:9px;border:1px solid var(--line);background:#fff;font-size:18px;line-height:1;cursor:pointer;color:var(--ink-2)}
+.mp-h button:disabled{opacity:.35;cursor:default}
+.mp-g{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mp-g button{font-weight:600;font-size:14px;padding:11px 0;border-radius:9px;border:1px solid var(--line);background:var(--cream);cursor:pointer}
+.mp-g button:disabled{color:#C2CBD4;background:#fff;cursor:default}
+.mp-g button.on,.mp-un.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.mp-un{margin-top:8px;width:100%;font-weight:600;font-size:13.5px;padding:10px;border-radius:9px;border:1px dashed var(--line);background:#fff;color:var(--soft);cursor:pointer}
+.pax{border:1px solid var(--line);border-radius:10px;background:var(--cream)}
+.pax .r{display:flex;align-items:center;justify-content:space-between;padding:11px 14px}
+.pax .r+.r{border-top:1px solid var(--line)}
+.pax b{display:block;font-size:14px}.pax .h{font-size:12.5px;color:var(--soft)}
+.step{display:flex;align-items:center;gap:6px}
+.step button{width:38px;height:38px;border-radius:50%;border:1px solid var(--blue);background:#fff;color:var(--blue);font-size:20px;font-weight:700;cursor:pointer}
+.step button:disabled{border-color:var(--line);color:#B9C2CB}
+.step output{min-width:32px;text-align:center;font-family:var(--d);font-weight:700;font-size:20px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink-2);margin:6px 0 18px}
+.chk input{width:19px;height:19px;accent-color:var(--blue);flex:none;margin-top:2px}
+.chk.bad{color:var(--red)}
+.formerr{display:none;background:var(--red-soft);color:var(--red-2);border-radius:9px;padding:10px 12px;font-size:13.5px;margin-bottom:14px}
+.back{background:none;border:0;color:var(--blue);font-weight:600;font-size:13.5px;cursor:pointer;padding:0;margin-bottom:14px}
+.note{background:var(--blue-soft);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--ink-2);margin-bottom:14px}
+.note b{display:block;font-family:var(--d);margin-bottom:2px;color:var(--ink)}
+.foot{text-align:center;font-size:11.5px;color:var(--soft);padding:20px}
+.pill{display:inline-block;border-radius:5px;padding:2px 8px;font-size:11px;font-weight:700;white-space:nowrap}
+.p-DAFTAR{background:var(--line-2);color:var(--ink-2)}
+.p-HUBUNG{background:var(--blue-soft);color:var(--blue-2)}
+.p-MINAT{background:var(--purple-bg);color:var(--purple)}
+.p-TERBANG{background:var(--green-bg);color:var(--green)}
+.p-TEMPAH{background:var(--amber-bg);color:var(--amber)}
+.p-MENUNGGU{background:var(--amber-bg);color:var(--amber)}
+.p-LULUS{background:var(--green-bg);color:var(--green)}
+.p-TOLAK{background:var(--line-2);color:var(--soft)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:11px;color:var(--soft);padding:9px 12px;border-bottom:1px solid var(--line);background:var(--cream);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.num{text-align:right;white-space:nowrap}
+.tbl{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
+.empty{padding:26px;text-align:center;color:var(--soft);font-size:13.5px}
+
+.bar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.bar button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 14px;font-weight:600;font-size:13.5px;cursor:pointer}
+.bar button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.bar .cnt{display:inline-block;margin-left:6px;background:var(--red);color:#fff;border-radius:999px;font-size:11px;padding:1px 7px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:12px;padding:14px 16px}
+.kpi.r{border-top-color:var(--red)}.kpi.g{border-top-color:var(--green)}.kpi.y{border-top-color:var(--gold)}
+.kpi .l{font-size:12.5px;color:var(--soft);font-weight:600}
+.kpi .v{font-family:var(--d);font-weight:800;font-size:26px;margin-top:2px}
+.kpi .dd{font-size:11.5px;color:var(--soft)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.panel h3{font-size:15px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line-2);display:flex;justify-content:space-between;align-items:center}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.filters input,.filters select{border:1px solid var(--line);border-radius:9px;padding:9px 12px;background:#fff;font-size:13.5px}
+.filters input{flex:1;min-width:200px}
+.feed{list-style:none;max-height:300px;overflow-y:auto}
+.feed li{padding:8px 0;border-bottom:1px solid var(--line-2);font-size:13px}
+.feed li:last-child{border-bottom:0}
+.feed time{display:block;font-size:11.5px;color:var(--soft)}
+.bars{display:grid;gap:9px}
+.bars .r{display:grid;grid-template-columns:1fr auto;gap:3px 10px;font-size:13px}
+.bars .t{grid-column:1/-1;height:8px;background:var(--line-2);border-radius:4px;overflow:hidden}
+.bars .t i{display:block;height:100%;background:var(--blue)}
+.bars b{font-family:var(--d)}
+.act{display:flex;gap:6px;flex-wrap:wrap}
+.act button{border:1px solid var(--line);background:#fff;border-radius:7px;padding:4px 9px;font-size:12px;font-weight:600;cursor:pointer}
+.act button.p{border-color:var(--green);color:var(--green)}
+.act button.n{border-color:var(--red);color:var(--red)}
+
+.modal{position:fixed;inset:0;background:rgba(22,32,43,.5);display:flex;align-items:center;justify-content:center;padding:20px;z-index:60}
+.modal-box{background:#fff;border-radius:14px;padding:22px;max-width:420px;width:100%}
+.modal-box h3{font-size:17px;margin-bottom:14px}
+.modal-act{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+.btn.sm.blue{background:var(--blue);border-color:var(--blue);color:#fff}
+@media (max-width:1000px){ .kpis{grid-template-columns:repeat(2,1fr)} .g2{grid-template-columns:1fr} }
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="in">
+    <img class="crest" src="data:image/png;base64,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" alt="Lambang agensi">
+    <div class="brand"><b>Program Umrah Warga Veteran</b><small>Dashboard urus setia program</small></div>
+    <div class="sp"></div>
+    <nav><a href="program.html">Laman program</a><a href="voucher.html">Borang voucher</a><a href="ejen.html">Ejen</a></nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="bar">
+    <button class="on" data-tab="ring">Ringkasan</button>
+    <button data-tab="lead">Pendaftar voucher</button>
+    <button data-tab="jemaah">Jemaah dan bayaran</button>
+    <button data-tab="ejen">Ejen <span class="cnt" id="cntE" hidden>0</span></button>
+    <button data-tab="kom">Komisen</button>
+    <div class="sp"></div>
+    <button id="seed">Isi data demo</button>
+    <button id="reset">Kosongkan</button>
+  </div>
+
+  <!-- ============ RINGKASAN ============ -->
+  <section id="t-ring">
+    <div class="kpis">
+      <div class="kpi"><div class="l">Pendaftar voucher</div><div class="v" id="kReg">0</div><div class="dd" id="kReg7">0 dalam 7 hari</div></div>
+      <div class="kpi y"><div class="l">Closed, belum berlepas</div><div class="v" id="kClose">0</div><div class="dd" id="kCloseP">0 jemaah menunggu</div></div>
+      <div class="kpi r"><div class="l">Sudah berlepas</div><div class="v" id="kTeb">0</div><div class="dd" id="kRate">0% kadar tebusan</div></div>
+      <div class="kpi"><div class="l">Ejen aktif</div><div class="v" id="kEjen">0</div><div class="dd" id="kEjenW">0 menunggu pengesahan</div></div>
+      <div class="kpi g"><div class="l">Komisen layak dibayar</div><div class="v" id="kKom">RM0</div><div class="dd" id="kKomB">RM0 telah dibayar</div></div>
+    </div>
+    <div class="g2">
+      <div class="panel"><h3>Pendaftar mengikut sumber</h3><div class="bars" id="bySrc"></div></div>
+      <div class="panel"><h3>Top 5 ejen</h3><div class="bars" id="topA"></div></div>
+    </div>
+    <div class="g2">
+      <div class="panel"><h3>Pendaftar mengikut negeri</h3><div class="bars" id="byNeg"></div></div>
+      <div class="panel"><h3>Aktiviti terkini</h3><ul class="feed" id="feed"></ul></div>
+    </div>
+  </section>
+
+  <!-- ============ PENDAFTAR ============ -->
+  <section id="t-lead" hidden>
+    <div class="filters">
+      <input type="search" id="q" placeholder="Cari nama, no. rujukan, telefon atau ejen">
+      <select id="fst"><option value="">Semua status</option><option value="DAFTAR">Daftar voucher</option><option value="HUBUNG">Dihubungi</option><option value="MINAT">Berminat</option><option value="TEMPAH">Closed, belum berlepas</option><option value="TERBANG">Sudah berlepas</option></select>
+      <select id="fneg"><option value="">Semua negeri</option></select>
+      <button class="btn sm" id="csvL">Muat turun CSV</button>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>No. rujukan</th><th>Nama</th><th>Negeri</th><th>Rancangan</th><th>Sumber</th><th>Status</th><th class="num">Jemaah</th><th>Tindakan</th></tr></thead>
+      <tbody id="rowsL"></tbody></table></div>
+  </section>
+
+  <!-- ============ JEMAAH DAN BAYARAN ============ -->
+  <section id="t-jemaah" hidden>
+    <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi"><div class="l">Jemaah closed</div><div class="v" id="jTotal">0</div><div class="dd" id="jPax">0 orang</div></div>
+      <div class="kpi y"><div class="l">Nilai tempahan</div><div class="v" id="jHarga">RM0</div><div class="dd">harga pakej terkumpul</div></div>
+      <div class="kpi g"><div class="l">Sudah dibayar jemaah</div><div class="v" id="jBayar">RM0</div><div class="dd" id="jBayarP">0% daripada nilai</div></div>
+      <div class="kpi r"><div class="l">Baki belum dijelaskan</div><div class="v" id="jBaki">RM0</div><div class="dd" id="jBakiN">0 jemaah ada baki</div></div>
+    </div>
+    <div class="filters">
+      <input type="search" id="jq" placeholder="Cari nama jemaah, no. rujukan atau pakej">
+      <select id="jf"><option value="">Semua jemaah closed</option><option value="AKAN">Akan berlepas</option><option value="SUDAH">Sudah berlepas</option><option value="BAKI">Ada baki bayaran</option><option value="PENUH">Bayaran penuh</option></select>
+      <button class="btn sm" id="csvJ">Muat turun CSV</button>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>No. rujukan</th><th>Jemaah</th><th>Pakej</th><th class="num">Bilangan</th><th>Tarikh berlepas</th><th class="num">Harga</th><th class="num">Dah bayar</th><th class="num">Baki</th><th>Status bayaran</th><th>Ejen</th><th>Tindakan</th></tr></thead>
+      <tbody id="rowsJ"></tbody></table></div>
+  </section>
+
+  <!-- ============ EJEN ============ -->
+  <section id="t-ejen" hidden>
+    <div class="panel" style="margin-bottom:16px">
+      <h3>Pendaftaran menunggu pengesahan <span style="font-size:12px;color:var(--soft)" id="waitN"></span></h3>
+      <div class="tbl" style="border:0"><table>
+        <thead><tr><th>Rujukan</th><th>Nama</th><th>Negeri</th><th>Status pemohon</th><th>No. kad</th><th>Pengalaman</th><th>Sasaran</th><th>Tarikh daftar</th><th>Tindakan</th></tr></thead>
+        <tbody id="rowsW"></tbody></table></div>
+    </div>
+    <div class="panel">
+      <h3>Senarai ejen disahkan <button class="btn sm" id="csvE">CSV ejen</button></h3>
+      <div class="tbl" style="border:0"><table>
+        <thead><tr><th>Kod</th><th>Nama</th><th>Negeri</th><th>Peringkat</th><th class="num">Pendaftar</th><th class="num">Closed</th><th class="num">Berlepas</th><th class="num">Komisen layak</th><th class="num">Dibayar</th><th>Status</th><th>Tindakan</th></tr></thead>
+        <tbody id="rowsE"></tbody></table></div>
+    </div>
+  </section>
+
+  <!-- ============ KOMISEN ============ -->
+  <section id="t-kom" hidden>
+    <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi"><div class="l">Ejen dapat komisen bulan ini</div><div class="v" id="cAgents">0</div><div class="dd" id="cMonth"></div></div>
+      <div class="kpi y"><div class="l">Komisen bulan ini</div><div class="v" id="cTotal">RM0</div><div class="dd" id="cJemaah">0 jemaah berlepas</div></div>
+      <div class="kpi g"><div class="l">Sudah dibayar</div><div class="v" id="cPaid">RM0</div><div class="dd" id="cPaidP">0% daripada komisen bulan ini</div></div>
+      <div class="kpi r"><div class="l">Belum dibayar</div><div class="v" id="cDue">RM0</div><div class="dd" id="cDueN">0 rekod menunggu</div></div>
+    </div>
+    <div class="panel" style="margin-bottom:16px">
+      <h3>Komisen mengikut jemaah
+        <span><button class="btn sm" id="csvK">CSV bayaran</button> <button class="btn sm" id="payAll">Bayar semua yang diluluskan</button></span></h3>
+      <div class="filters" style="margin-bottom:10px">
+        <select id="kf"><option value="">Semua rekod</option><option value="MENUNGGU">Menunggu kelulusan</option><option value="LULUS">Diluluskan, belum dibayar</option><option value="DIBAYAR">Telah dibayar</option><option value="TOLAK">Ditolak</option></select>
+      </div>
+      <div class="tbl" style="border:0"><table>
+        <thead><tr><th>No. rujukan</th><th>Jemaah</th><th>Pakej</th><th>Tarikh berlepas</th><th>Bayaran jemaah</th><th>Ejen</th><th class="num">Komisen</th><th>Status</th><th>Tindakan</th></tr></thead>
+        <tbody id="rowsK"></tbody></table></div>
+    </div>
+    <div class="panel">
+      <h3>Ringkasan mengikut ejen</h3>
+      <div class="tbl" style="border:0"><table>
+        <thead><tr><th>Kod</th><th>Ejen</th><th>No. telefon</th><th class="num">Jemaah berlepas</th><th class="num">Layak dibayar</th><th class="num">Telah dibayar</th><th>Tindakan</th></tr></thead>
+        <tbody id="rowsP"></tbody></table></div>
+      <h3 style="margin-top:18px">Sejarah bayaran</h3>
+      <div class="tbl" style="border:0"><table>
+        <thead><tr><th>Tarikh</th><th>Kod</th><th>Ejen</th><th class="num">Bil. jemaah</th><th class="num">Amaun</th></tr></thead>
+        <tbody id="rowsH"></tbody></table></div>
+    </div>
+  </section>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-box">
+    <h3 id="mTitle"></h3>
+    <div id="mFields"></div>
+    <div class="modal-act"><button class="btn sm" type="button" id="mCancel">Batal</button><button class="btn sm blue" type="button" id="mOk">Simpan</button></div>
+  </div>
+</div>
+<p class="foot">Prototaip sistem. Data disimpan dalam pelayar ini sahaja.</p>
+<script>
+
+const CFG={
+  VOUCHER:'VETERAN1000', AMOUNT:1000, DAYS:90,
+  BOOK:'https://jhev-umrah-salespage.vercel.app/',
+  TIERS:[{n:'Ejen',min:0,rate:300},{n:'Ejen Perak',min:5,rate:400},{n:'Ejen Emas',min:15,rate:500}],
+  STATES:['Perlis','Kedah','Pulau Pinang','Perak','Kelantan','Terengganu','Pahang','Selangor','Kuala Lumpur','Putrajaya','Negeri Sembilan','Melaka','Johor','Sabah','Sarawak','Labuan'],
+  BUDGETS:['Bawah RM8,000','RM8,000 hingga RM10,000','RM10,000 hingga RM13,000','Melebihi RM13,000'],
+  SITE:'program.html', FORM:'voucher.html', AGENT:'ejen.html'
+};
+const KEY='vet_proto_v1';
+const BLN=['Januari','Februari','Mac','April','Mei','Jun','Julai','Ogos','September','Oktober','November','Disember'];
+const BLNS=['Jan','Feb','Mac','Apr','Mei','Jun','Jul','Ogo','Sep','Okt','Nov','Dis'];
+const $=id=>document.getElementById(id);
+const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const rm=n=>'RM'+Math.round(n||0).toLocaleString('en-MY');
+const fmtD=d=>new Date(d).toLocaleDateString('ms-MY',{day:'numeric',month:'short',year:'numeric'});
+const fmtL=d=>new Date(d).toLocaleDateString('ms-MY',{day:'numeric',month:'long',year:'numeric'});
+const mask=p=>p?p.slice(0,4)+'xxx'+p.slice(-4):'';
+const fonOk=v=>{ let d=(v||'').replace(/\D/g,''); if(d.startsWith('60'))d=d.slice(2); if(d.startsWith('0'))d=d.slice(1); return /^1\d{8,9}$/.test(d)?'60'+d:null; };
+function load(){ let d; try{ d=JSON.parse(localStorage.getItem(KEY)); }catch(e){} d=d||{sl:1001,se:101,leads:[],agents:[],log:[]}; d.log=d.log||[];
+  d.leads.forEach(l=>{ if(l.status==='TEBUS') l.status='TERBANG'; });
+  return d; }
+function save(d){ try{ localStorage.setItem(KEY,JSON.stringify(d)); }catch(e){} }
+function logIt(db,msg,ref){ db.log.unshift({t:new Date().toISOString(),msg,ref}); db.log=db.log.slice(0,300); }
+function tierOf(pax){ let t=CFG.TIERS[0]; CFG.TIERS.forEach(x=>{ if(pax>=x.min) t=x; }); return t; }
+function agentPax(db,kod){ return db.leads.filter(l=>l.ejen===kod&&l.status==='TERBANG').reduce((s,l)=>s+l.dewasa+l.kanak,0); }
+function bookUrl(l){ const u=new URL(CFG.BOOK); u.searchParams.set('voucher',l.kod); u.searchParams.set('ref',l.ref); if(l.ejen)u.searchParams.set('ejen',l.ejen); return u.toString(); }
+function qrInto(el,text){ if(typeof QRCode==='undefined'){ el.style.display='none'; return; }
+  const tmp=document.createElement('div'); new QRCode(tmp,{text,width:320,height:320,colorDark:'#16202B',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
+  const cv=tmp.querySelector('canvas'); el.innerHTML='<img src="'+(cv?cv.toDataURL():'')+'" alt="Kod QR">'; }
+function opts(sel,list){ list.forEach(x=>{const o=document.createElement('option');o.value=o.textContent=x;sel.appendChild(o);}); }
+function waCaption(a){ const link=location.origin+location.pathname.replace(/[^/]*$/,CFG.FORM)+'?ejen='+a.kod;
+return `Assalamualaikum. Alhamdulillah, kini ada Program Umrah Warga Veteran dengan potongan RM1,000 untuk setiap jemaah.
+
+Khas untuk veteran, anggota sedang berkhidmat dan ahli keluarga.
+
+Daftar e-voucher anda di sini:
+${link}
+
+Sebarang pertanyaan, boleh hubungi saya terus. Insya-Allah saya bantu uruskan.
+
+${a.nama}
+Ejen Veteran ${a.kod}`; }
+function agentLink(a){ return location.origin+location.pathname.replace(/[^/]*$/,CFG.FORM)+'?ejen='+a.kod; }
+
+let db=load(), tab='ring';
+const SL={DAFTAR:'Daftar voucher',HUBUNG:'Dihubungi',MINAT:'Berminat',TEMPAH:'Closed, belum berlepas',TERBANG:'Sudah berlepas'};
+const KS={MENUNGGU:'Menunggu kelulusan',LULUS:'Diluluskan',TOLAK:'Ditolak'};
+const agentOf=k=>db.agents.find(a=>a.kod===k);
+const bayarPenuh=l=>(l.bayar_jemaah||0)>=(l.harga||0)&&(l.harga||0)>0;
+const baki=l=>Math.max(0,(l.harga||0)-(l.bayar_jemaah||0));
+const TABS=['ring','lead','jemaah','ejen','kom'];
+document.querySelectorAll('.bar [data-tab]').forEach(b=>b.onclick=()=>{
+  tab=b.dataset.tab; document.querySelectorAll('.bar [data-tab]').forEach(x=>x.classList.toggle('on',x===b));
+  TABS.forEach(t=>$('t-'+t).hidden=t!==tab); render(); window.scrollTo(0,0); });
+
+/* ---------- borang kecil ---------- */
+function askForm(title,fields,cb){
+  $('mTitle').textContent=title;
+  $('mFields').innerHTML=fields.map(f=>`<div class="f"><label for="m_${f.k}">${esc(f.l)}</label><input id="m_${f.k}" type="${f.t||'text'}" value="${esc(f.v??'')}" placeholder="${esc(f.p||'')}"></div>`).join('');
+  $('modal').hidden=false; setTimeout(()=>{const el=$('m_'+fields[0].k); el&&el.focus();},50);
+  $('mOk').onclick=()=>{ const out={}; fields.forEach(f=>{ const v=$('m_'+f.k).value.trim(); out[f.k]=f.t==='number'?(parseFloat(v)||0):v; }); $('modal').hidden=true; cb(out); };
+  $('mCancel').onclick=()=>{ $('modal').hidden=true; };
+}
+
+function render(){ db=load(); kpi(); leads(); jemaah(); agents(); komisen(); }
+
+/* ---------- ringkasan ---------- */
+function kpi(){
+  const L=db.leads, T=L.filter(l=>l.status==='TERBANG'), C=L.filter(l=>l.status==='TEMPAH'), w7=Date.now()-7*864e5;
+  const kom=T.filter(l=>l.komisen_status==='LULUS'&&!l.bayar).reduce((s,l)=>s+(l.komisen||0),0);
+  const paid=T.filter(l=>l.bayar).reduce((s,l)=>s+(l.komisen||0),0);
+  $('kReg').textContent=L.length; $('kReg7').textContent=L.filter(l=>new Date(l.created)>=w7).length+' dalam 7 hari';
+  $('kClose').textContent=C.length; $('kCloseP').textContent=C.reduce((s,l)=>s+l.dewasa+l.kanak,0)+' jemaah menunggu berlepas';
+  $('kTeb').textContent=T.length; $('kRate').textContent=(L.length?(T.length/L.length*100):0).toFixed(1)+'% kadar tebusan';
+  const lulus=db.agents.filter(a=>a.status==='LULUS'), tunggu=db.agents.filter(a=>a.status==='MENUNGGU');
+  $('kEjen').textContent=lulus.length; $('kEjenW').textContent=tunggu.length+' menunggu pengesahan';
+  $('cntE').textContent=tunggu.length; $('cntE').hidden=!tunggu.length;
+  $('kKom').textContent=rm(kom); $('kKomB').textContent=rm(paid)+' telah dibayar';
+  const src={'Melalui ejen':L.filter(l=>l.ejen).length,'Saluran rasmi':L.filter(l=>!l.ejen).length};
+  bars('bySrc',Object.entries(src));
+  const byA={}; L.forEach(l=>{ if(l.ejen) byA[l.ejen]=(byA[l.ejen]||0)+1; });
+  bars('topA',Object.entries(byA).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([k,v])=>[((agentOf(k)||{}).nama||k)+' ('+k+')',v]));
+  const byN={}; L.forEach(l=>{ byN[l.negeri]=(byN[l.negeri]||0)+1; });
+  bars('byNeg',Object.entries(byN).sort((a,b)=>b[1]-a[1]).slice(0,8));
+  $('feed').innerHTML=db.log.length?db.log.slice(0,30).map(x=>`<li>${esc(x.msg)}<time>${fmtD(x.t)}</time></li>`).join(''):'<li class="empty">Belum ada aktiviti.</li>';
+}
+function bars(id,rows){
+  const mx=Math.max(1,...rows.map(r=>r[1]));
+  $(id).innerHTML=rows.length?rows.map(([k,v])=>`<div class="r"><span>${esc(k)}</span><b>${v}</b><div class="t"><i style="width:${v/mx*100}%"></i></div></div>`).join(''):'<div class="empty">Tiada data</div>';
+}
+
+/* ---------- pendaftar ---------- */
+function leadRows(){
+  const q=$('q').value.trim().toLowerCase(), st=$('fst').value, ng=$('fneg').value;
+  return db.leads.filter(l=>(!st||l.status===st)&&(!ng||l.negeri===ng)&&(!q||[l.nama,l.ref,l.fon,l.ejen].join(' ').toLowerCase().includes(q)));
+}
+function leads(){
+  const negs=[...new Set(db.leads.map(l=>l.negeri))].sort(), cur=$('fneg').value;
+  $('fneg').innerHTML='<option value="">Semua negeri</option>'+negs.map(n=>`<option ${n===cur?'selected':''}>${esc(n)}</option>`).join('');
+  const R=leadRows();
+  $('rowsL').innerHTML=R.length?R.map(l=>{const a=agentOf(l.ejen);
+    return `<tr><td>${esc(l.ref)}<div class="sub" style="font-size:11.5px;color:var(--soft)">${fmtD(l.created)}</div></td>
+    <td>${esc(l.nama)}<div style="font-size:11.5px;color:var(--soft)">+${esc(l.fon)}</div></td>
+    <td>${esc(l.negeri)}<div style="font-size:11.5px;color:var(--soft)">${esc(l.status_pemohon||'')}</div></td>
+    <td>${esc(l.bulan||'')}<div style="font-size:11.5px;color:var(--soft)">${esc(l.bajet||'')}</div></td>
+    <td>${a?esc(a.nama)+'<div style="font-size:11.5px;color:var(--soft)">'+esc(l.ejen)+'</div>':'<span style="color:var(--soft)">Saluran rasmi</span>'}</td>
+    <td><span class="pill p-${l.status}">${SL[l.status]}</span></td>
+    <td class="num">${l.dewasa+l.kanak}</td>
+    <td><div class="act">
+      ${l.status!=='TERBANG'?`<button data-st="HUBUNG" data-id="${l.id}">Dihubungi</button><button data-st="MINAT" data-id="${l.id}">Berminat</button><button data-st="TEMPAH" data-id="${l.id}">Closed</button><button class="p" data-st="TERBANG" data-id="${l.id}">Dah berlepas</button>`:'<span style="color:var(--soft);font-size:12px">Selesai</span>'}
+    </div></td></tr>`;}).join('')
+    :'<tr><td colspan="8" class="empty">Tiada pendaftar.</td></tr>';
+}
+$('rowsL').onclick=e=>{
+  const b=e.target.closest('[data-st]'); if(!b) return;
+  db=load(); const l=db.leads.find(x=>x.id===b.dataset.id); if(!l) return;
+  const st=b.dataset.st;
+  if(st==='TEMPAH'){
+    askForm('Closed: maklumat tempahan',[
+      {k:'pakej',l:'Pakej',v:l.pakej||'',p:'Contoh: Umrah 12 Hari Mac 2027'},
+      {k:'tarikh',l:'Tarikh berlepas',v:l.tarikh_terbang||'',p:'Contoh: 12 Mac 2027'},
+      {k:'harga',l:'Harga pakej keseluruhan (RM)',t:'number',v:l.harga||((l.dewasa+l.kanak)*9990)},
+      {k:'bayar',l:'Bayaran diterima setakat ini (RM)',t:'number',v:l.bayar_jemaah||0}
+    ],out=>{
+      db=load(); const x=db.leads.find(y=>y.id===l.id);
+      x.status='TEMPAH'; x.pakej=out.pakej; x.tarikh_terbang=out.tarikh; x.harga=out.harga; x.bayar_jemaah=out.bayar; x.closed=new Date().toISOString();
+      const pax=agentPax(db,x.ejen); x.anggaran=x.ejen?(x.dewasa+x.kanak)*tierOf(pax).rate:0;
+      logIt(db,`${x.nama} closed: ${out.pakej||'pakej'}, berlepas ${out.tarikh||'belum ditetapkan'}`,x.ref);
+      logIt(db,`WhatsApp pengesahan tempahan dihantar ke ${mask(x.fon)}`,x.ref);
+      save(db); render();
+    });
+    return;
+  }
+  if(st==='TERBANG'){
+    if(!l.harga||!l.pakej){
+      askForm('Sahkan berlepas: maklumat tempahan',[
+        {k:'pakej',l:'Pakej',v:l.pakej||'',p:'Contoh: Umrah 12 Hari Mac 2027'},
+        {k:'tarikh',l:'Tarikh berlepas',v:l.tarikh_terbang||fmtD(new Date())},
+        {k:'harga',l:'Harga pakej keseluruhan (RM)',t:'number',v:l.harga||((l.dewasa+l.kanak)*9990)},
+        {k:'bayar',l:'Jumlah bayaran diterima (RM)',t:'number',v:l.bayar_jemaah||((l.dewasa+l.kanak)*9990)}
+      ],out=>{ db=load(); const x=db.leads.find(y=>y.id===l.id);
+        x.pakej=out.pakej; x.tarikh_terbang=out.tarikh; x.harga=out.harga; x.bayar_jemaah=out.bayar;
+        tandaBerlepas(db,x); save(db); render(); });
+      return;
+    }
+    tandaBerlepas(db,l); save(db); render(); return;
+  }
+  l.status=st;
+  logIt(db,`Status ${l.ref} dikemas kini kepada ${SL[st]}`,l.ref);
+  save(db); render();
+};
+['q','fst','fneg'].forEach(id=>$(id).addEventListener('input',()=>{ db=load(); leads(); }));
+
+/* ---------- jemaah dan bayaran ---------- */
+function tandaBerlepas(db,l){
+  l.status='TERBANG';
+  const pax=agentPax(db,l.ejen);
+  l.komisen=l.ejen?(l.dewasa+l.kanak)*tierOf(pax).rate:0;
+  l.komisen_status=l.komisen_status||'MENUNGGU';
+  l.tebus=new Date().toISOString();
+  if(!l.tarikh_terbang) l.tarikh_terbang=fmtD(new Date());
+  logIt(db,`${l.nama} disahkan sudah berlepas (${l.dewasa+l.kanak} jemaah)${l.ejen?', komisen '+rm(l.komisen)+' menunggu kelulusan':''}`,l.ref);
+}
+function jemaahRows(){
+  const q=$('jq').value.trim().toLowerCase(), f=$('jf').value;
+  return db.leads.filter(l=>['TEMPAH','TERBANG'].includes(l.status))
+    .filter(l=>f==='AKAN'?l.status==='TEMPAH':f==='SUDAH'?l.status==='TERBANG':f==='BAKI'?baki(l)>0:f==='PENUH'?bayarPenuh(l):true)
+    .filter(l=>!q||[l.nama,l.ref,l.pakej,l.ejen].join(' ').toLowerCase().includes(q));
+}
+function jemaah(){
+  const A=db.leads.filter(l=>['TEMPAH','TERBANG'].includes(l.status));
+  const harga=A.reduce((s,l)=>s+(l.harga||0),0), bayar=A.reduce((s,l)=>s+(l.bayar_jemaah||0),0);
+  $('jTotal').textContent=A.length; $('jPax').textContent=A.reduce((s,l)=>s+l.dewasa+l.kanak,0)+' orang';
+  $('jHarga').textContent=rm(harga); $('jBayar').textContent=rm(bayar);
+  $('jBayarP').textContent=(harga?bayar/harga*100:0).toFixed(0)+'% daripada nilai';
+  $('jBaki').textContent=rm(harga-bayar); $('jBakiN').textContent=A.filter(l=>baki(l)>0).length+' jemaah ada baki';
+  const R=jemaahRows();
+  $('rowsJ').innerHTML=R.length?R.map(l=>{ const a=agentOf(l.ejen)||{};
+    return `<tr><td>${esc(l.ref)}<div style="font-size:11.5px;color:var(--soft)">${SL[l.status]}</div></td>
+    <td>${esc(l.nama)}<div style="font-size:11.5px;color:var(--soft)">+${esc(l.fon)}</div></td>
+    <td>${esc(l.pakej||'-')}</td><td class="num">${l.dewasa+l.kanak}</td>
+    <td>${esc(l.tarikh_terbang||'belum ditetapkan')}</td>
+    <td class="num">${rm(l.harga||0)}</td><td class="num">${rm(l.bayar_jemaah||0)}</td>
+    <td class="num">${baki(l)?'<b style="color:var(--red)">'+rm(baki(l))+'</b>':'RM0'}</td>
+    <td><span class="pill ${!l.harga?'p-DAFTAR':bayarPenuh(l)?'p-TERBANG':'p-TEMPAH'}">${!l.harga?'Belum lengkap':bayarPenuh(l)?'Full payment':'Belum penuh'}</span></td>
+    <td>${esc(a.nama||'Saluran rasmi')}${l.ejen?'<div style="font-size:11.5px;color:var(--soft)">'+esc(l.ejen)+'</div>':''}</td>
+    <td><div class="act"><button data-edit="${l.id}">Kemas kini</button></div></td></tr>`;}).join('')
+    :'<tr><td colspan="11" class="empty">Tiada jemaah closed lagi. Tandakan pendaftar sebagai Closed di tab Pendaftar voucher.</td></tr>';
+}
+$('rowsJ').onclick=e=>{
+  const b=e.target.closest('[data-edit]'); if(!b) return;
+  db=load(); const l=db.leads.find(x=>x.id===b.dataset.edit); if(!l) return;
+  askForm('Kemas kini tempahan dan bayaran',[
+    {k:'pakej',l:'Pakej',v:l.pakej||''},
+    {k:'tarikh',l:'Tarikh berlepas',v:l.tarikh_terbang||''},
+    {k:'harga',l:'Harga pakej (RM)',t:'number',v:l.harga||0},
+    {k:'bayar',l:'Jumlah bayaran diterima (RM)',t:'number',v:l.bayar_jemaah||0}
+  ],out=>{
+    db=load(); const x=db.leads.find(y=>y.id===l.id);
+    x.pakej=out.pakej; x.tarikh_terbang=out.tarikh; x.harga=out.harga; x.bayar_jemaah=out.bayar;
+    logIt(db,`Bayaran ${x.nama} dikemas kini: ${rm(out.bayar)} daripada ${rm(out.harga)}`,x.ref);
+    save(db); render();
+  });
+};
+['jq','jf'].forEach(id=>$(id).addEventListener('input',()=>{ db=load(); jemaah(); }));
+
+/* ---------- ejen ---------- */
+function agents(){
+  const wait=db.agents.filter(a=>a.status==='MENUNGGU'), act=db.agents.filter(a=>a.status!=='MENUNGGU');
+  $('waitN').textContent=wait.length?wait.length+' pendaftaran':'';
+  $('rowsW').innerHTML=wait.length?wait.map(a=>`<tr><td><b>${esc(a.kod)}</b></td><td>${esc(a.nama)}<div style="font-size:11.5px;color:var(--soft)">+${esc(a.fon)}</div></td><td>${esc(a.negeri)}</td>
+    <td>${esc(a.status_pemohon)}</td><td>${esc(a.kad)}</td><td>${esc(a.exp)}</td><td>${esc(a.sasar)}</td><td>${fmtD(a.created)}</td>
+    <td><div class="act"><button class="p" data-ap="${a.id}">Sahkan</button><button class="n" data-rj="${a.id}">Tolak</button></div></td></tr>`).join('')
+    :'<tr><td colspan="9" class="empty">Tiada pendaftaran baharu menunggu pengesahan.</td></tr>';
+  $('rowsE').innerHTML=act.length?act.map(a=>{
+    const mine=db.leads.filter(l=>l.ejen===a.kod), t=mine.filter(l=>l.status==='TERBANG'), c=mine.filter(l=>l.status==='TEMPAH');
+    const pax=t.reduce((s,l)=>s+l.dewasa+l.kanak,0);
+    const layak=t.filter(l=>l.komisen_status==='LULUS'&&!l.bayar).reduce((s,l)=>s+(l.komisen||0),0);
+    const dibayar=t.filter(l=>l.bayar).reduce((s,l)=>s+(l.komisen||0),0);
+    return `<tr><td><b>${esc(a.kod)}</b></td><td>${esc(a.nama)}<div style="font-size:11.5px;color:var(--soft)">+${esc(a.fon)}</div></td><td>${esc(a.negeri)}</td>
+    <td>${tierOf(pax).n}</td><td class="num">${mine.length}</td><td class="num">${c.length}</td><td class="num">${pax}</td>
+    <td class="num"><b>${rm(layak)}</b></td><td class="num">${rm(dibayar)}</td>
+    <td><span class="pill ${a.status==='LULUS'?'p-LULUS':'p-TOLAK'}">${a.status==='LULUS'?'Aktif':'Digantung'}</span></td>
+    <td><div class="act"><a class="btn sm" href="ejen.html?kod=${a.kod}" target="_blank" style="text-decoration:none">Dashboard</a>
+      <button class="${a.status==='LULUS'?'n':'p'}" data-sus="${a.id}">${a.status==='LULUS'?'Gantung':'Aktifkan'}</button></div></td></tr>`;}).join('')
+    :'<tr><td colspan="11" class="empty">Belum ada ejen disahkan.</td></tr>';
+}
+$('rowsW').onclick=e=>{
+  const ap=e.target.closest('[data-ap]'), rj=e.target.closest('[data-rj]');
+  if(!ap&&!rj) return; db=load();
+  const a=db.agents.find(x=>x.id===(ap||rj).dataset[ap?'ap':'rj']); if(!a) return;
+  a.status=ap?'LULUS':'TOLAK'; if(ap) a.lulus=new Date().toISOString();
+  logIt(db,`Pendaftaran ejen ${a.nama} ${ap?'disahkan ('+a.kod+')':'ditolak'}`,a.kod);
+  if(ap) logIt(db,`WhatsApp kod ejen ${a.kod} dan link peribadi dihantar ke ${mask(a.fon)}`,a.kod);
+  save(db); render();
+};
+$('rowsE').onclick=e=>{
+  const b=e.target.closest('[data-sus]'); if(!b) return; db=load();
+  const a=db.agents.find(x=>x.id===b.dataset.sus); if(!a) return;
+  a.status=a.status==='LULUS'?'TOLAK':'LULUS';
+  logIt(db,`Akaun ejen ${a.kod} ${a.status==='LULUS'?'diaktifkan semula':'digantung'}`,a.kod);
+  save(db); render();
+};
+
+/* ---------- komisen ---------- */
+function komRows(){
+  const f=$('kf').value;
+  return db.leads.filter(l=>l.status==='TERBANG'&&l.ejen)
+    .filter(l=>f==='DIBAYAR'?!!l.bayar:f==='LULUS'?(l.komisen_status==='LULUS'&&!l.bayar):f?l.komisen_status===f&&!l.bayar:true)
+    .sort((a,b)=>new Date(b.tebus||b.created)-new Date(a.tebus||a.created));
+}
+function komisen(){
+  const T=db.leads.filter(l=>l.status==='TERBANG'&&l.ejen);
+  const now=new Date(), bulan=now.getMonth(), tahun=now.getFullYear();
+  const M=T.filter(l=>{ const d=new Date(l.tebus||l.created); return d.getMonth()===bulan&&d.getFullYear()===tahun; });
+  const totM=M.reduce((s,l)=>s+(l.komisen||0),0), paidM=M.filter(l=>l.bayar).reduce((s,l)=>s+(l.komisen||0),0);
+  $('cAgents').textContent=new Set(M.map(l=>l.ejen)).size;
+  $('cMonth').textContent=BLN[bulan]+' '+tahun;
+  $('cTotal').textContent=rm(totM); $('cJemaah').textContent=M.reduce((s,l)=>s+l.dewasa+l.kanak,0)+' jemaah berlepas';
+  $('cPaid').textContent=rm(paidM); $('cPaidP').textContent=(totM?paidM/totM*100:0).toFixed(0)+'% daripada komisen bulan ini';
+  const due=T.filter(l=>l.komisen_status==='LULUS'&&!l.bayar).reduce((s,l)=>s+(l.komisen||0),0);
+  $('cDue').textContent=rm(due); $('cDueN').textContent=T.filter(l=>l.komisen_status!=='TOLAK'&&!l.bayar).length+' rekod belum dibayar';
+
+  const R=komRows();
+  $('rowsK').innerHTML=R.length?R.map(l=>{ const a=agentOf(l.ejen)||{};
+    const st=l.bayar?'<span class="pill p-LULUS">Dibayar</span>':l.komisen_status==='LULUS'?'<span class="pill p-TEMPAH">Diluluskan</span>':l.komisen_status==='TOLAK'?'<span class="pill p-TOLAK">Ditolak</span>':'<span class="pill p-DAFTAR">Menunggu kelulusan</span>';
+    return `<tr><td>${esc(l.ref)}</td>
+    <td>${esc(l.nama)}<div style="font-size:11.5px;color:var(--soft)">${l.dewasa+l.kanak} jemaah</div></td>
+    <td>${esc(l.pakej||'-')}</td><td>${esc(l.tarikh_terbang||'-')}</td>
+    <td>${l.harga?rm(l.bayar_jemaah||0)+' / '+rm(l.harga):'<span style="color:var(--soft)">Belum diisi</span>'}
+      <div style="font-size:11.5px;color:${!l.harga?'var(--soft)':baki(l)?'var(--red)':'var(--green)'}">${!l.harga?'Maklumat pakej belum lengkap':bayarPenuh(l)?'Full payment':'Baki '+rm(baki(l))}</div></td>
+    <td>${esc(a.nama||'')}<div style="font-size:11.5px;color:var(--soft)">${esc(l.ejen)}</div></td>
+    <td class="num"><b>${rm(l.komisen||0)}</b></td><td>${st}</td>
+    <td><div class="act">${l.bayar?'<span style="color:var(--soft);font-size:12px">'+fmtD(l.bayar)+'</span>':
+      l.komisen_status==='LULUS'?`<button class="p" data-pay1="${l.id}">Bayar</button><button data-kom="MENUNGGU" data-id="${l.id}">Tarik balik</button>`:
+      `<button class="p" data-kom="LULUS" data-id="${l.id}">Lulus</button><button class="n" data-kom="TOLAK" data-id="${l.id}">Tolak</button>`}</div></td></tr>`;}).join('')
+    :'<tr><td colspan="9" class="empty">Tiada rekod komisen. Tandakan jemaah sebagai sudah berlepas di tab Pendaftar voucher.</td></tr>';
+  payRows();
+}
+$('kf').addEventListener('input',()=>{ db=load(); komisen(); });
+$('rowsK').onclick=e=>{
+  const k=e.target.closest('[data-kom]'), p=e.target.closest('[data-pay1]');
+  if(k){ db=load(); const l=db.leads.find(x=>x.id===k.dataset.id); if(!l) return;
+    l.komisen_status=k.dataset.kom;
+    logIt(db,`Komisen ${l.ref} (${rm(l.komisen||0)}) ${l.komisen_status==='LULUS'?'diluluskan':l.komisen_status==='TOLAK'?'ditolak':'ditarik balik'}`,l.ref);
+    save(db); render(); return; }
+  if(p){ db=load(); const l=db.leads.find(x=>x.id===p.dataset.pay1); if(!l||l.bayar) return;
+    bayarSatu(db,l); save(db); render(); }
+};
+function bayarSatu(db,l){
+  const now=new Date().toISOString();
+  l.bayar=now; const ag=db.agents.find(x=>x.kod===l.ejen); if(ag) ag.dibayar=(ag.dibayar||0)+(l.komisen||0);
+  db.pay=db.pay||[]; db.pay.unshift({t:now,kod:l.ejen,nama:ag?ag.nama:'',bil:l.dewasa+l.kanak,amaun:l.komisen||0,ref:l.ref});
+  logIt(db,`Komisen ${rm(l.komisen||0)} dibayar kepada ${l.ejen} untuk ${l.ref}`,l.ref);
+}
+function payRows(){
+  const rows=db.agents.filter(a=>a.status!=='MENUNGGU').map(a=>{
+    const t=db.leads.filter(l=>l.ejen===a.kod&&l.status==='TERBANG');
+    const belum=t.filter(l=>l.komisen_status==='LULUS'&&!l.bayar);
+    return {a,pax:t.reduce((s,l)=>s+l.dewasa+l.kanak,0),layak:belum.reduce((s,l)=>s+(l.komisen||0),0),
+            dibayar:t.filter(l=>l.bayar).reduce((s,l)=>s+(l.komisen||0),0)};
+  }).filter(r=>r.layak||r.dibayar||r.pax);
+  $('rowsP').innerHTML=rows.length?rows.map(r=>`<tr><td><b>${esc(r.a.kod)}</b></td><td>${esc(r.a.nama)}</td><td>+${esc(r.a.fon)}</td>
+    <td class="num">${r.pax}</td><td class="num"><b>${rm(r.layak)}</b></td><td class="num">${rm(r.dibayar)}</td>
+    <td>${r.layak?`<div class="act"><button class="p" data-pay="${r.a.kod}">Bayar ${rm(r.layak)}</button></div>`:'<span style="color:var(--soft);font-size:12px">Tiada baki</span>'}</td></tr>`).join('')
+    :'<tr><td colspan="7" class="empty">Belum ada komisen.</td></tr>';
+  const H=(db.pay||[]);
+  $('rowsH').innerHTML=H.length?H.map(x=>`<tr><td>${fmtD(x.t)}</td><td>${esc(x.kod)}</td><td>${esc(x.nama)}</td><td class="num">${x.bil}</td><td class="num"><b>${rm(x.amaun)}</b></td></tr>`).join('')
+    :'<tr><td colspan="5" class="empty">Belum ada bayaran dibuat.</td></tr>';
+}
+$('rowsP').onclick=e=>{ const b=e.target.closest('[data-pay]'); if(!b) return;
+  db=load(); db.leads.filter(l=>l.ejen===b.dataset.pay&&l.status==='TERBANG'&&l.komisen_status==='LULUS'&&!l.bayar).forEach(l=>bayarSatu(db,l));
+  save(db); render(); };
+$('payAll').onclick=()=>{ db=load();
+  const list=db.leads.filter(l=>l.status==='TERBANG'&&l.ejen&&l.komisen_status==='LULUS'&&!l.bayar);
+  if(!list.length){ alert('Tiada komisen diluluskan untuk dibayar.'); return; }
+  const tot=list.reduce((s,l)=>s+(l.komisen||0),0);
+  list.forEach(l=>bayarSatu(db,l)); save(db); render(); alert('Jumlah '+rm(tot)+' ditanda sebagai dibayar.'); };
+
+/* ---------- CSV ---------- */
+function dl(name,head,rows){
+  const q=v=>`"${String(v??'').replace(/"/g,'""')}"`;
+  const out=[head.map(q).join(',')].concat(rows.map(r=>r.map(q).join(',')));
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['\ufeff'+out.join('\n')],{type:'text/csv'})); a.download=name+'.csv'; a.click();
+}
+$('csvL').onclick=()=>dl('pendaftar-voucher',['No. rujukan','Nama','Telefon','Email','Negeri','Status pemohon','Bulan','Dewasa','Kanak-kanak','Bajet','Ejen','Status','Tarikh'],
+  leadRows().map(l=>[l.ref,l.nama,l.fon,l.email,l.negeri,l.status_pemohon,l.bulan,l.dewasa,l.kanak,l.bajet,l.ejen,SL[l.status],fmtD(l.created)]));
+$('csvJ').onclick=()=>dl('jemaah-dan-bayaran',['No. rujukan','Nama','Telefon','Pakej','Bilangan','Tarikh berlepas','Harga','Dah bayar','Baki','Status bayaran','Status jemaah','Ejen'],
+  jemaahRows().map(l=>[l.ref,l.nama,l.fon,l.pakej,l.dewasa+l.kanak,l.tarikh_terbang,l.harga||0,l.bayar_jemaah||0,baki(l),!l.harga?'Belum lengkap':bayarPenuh(l)?'Full payment':'Belum penuh',SL[l.status],l.ejen]));
+$('csvE').onclick=()=>dl('ejen-veteran',['Kod','Nama','Telefon','Email','Negeri','No. kad','Status'],
+  db.agents.map(a=>[a.kod,a.nama,a.fon,a.email,a.negeri,a.kad,a.status]));
+$('csvK').onclick=()=>dl('bayaran-komisen',['Kod ejen','Nama ejen','Telefon','No. rujukan','Jemaah','Pakej','Tarikh berlepas','Bilangan','Komisen (RM)','Status'],
+  komRows().map(l=>{const a=agentOf(l.ejen)||{};
+    return [l.ejen,a.nama,a.fon,l.ref,l.nama,l.pakej,l.tarikh_terbang,l.dewasa+l.kanak,l.komisen,l.bayar?'Dibayar':KS[l.komisen_status||'MENUNGGU']];}));
+
+/* ---------- data demo ---------- */
+$('seed').onclick=()=>{
+  db=load();
+  const NA=['Mejar (B) Ahmad bin Ismail','Sjn (B) Zulkifli bin Awang','Kpl (B) Rosli bin Daud','Puan Zaleha binti Omar'];
+  const NL=['Siti Aminah binti Yusof','Mohd Nor bin Hassan','Rohani binti Daud','Ismail bin Salleh','Norma binti Ahmad','Hasan bin Omar','Fatimah binti Ali','Azman bin Mat'];
+  const PK=['Umrah 12 Hari Mac 2027','Umrah 14 Hari Februari 2027','Umrah Ramadan 2027','Umrah 12 Hari Jun 2027'];
+  const negs=['Kedah','Kelantan','Perak','Selangor','Johor','Pahang'];
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  NA.forEach((n,i)=>{ if(db.agents.some(a=>a.nama===n)) return;
+    db.agents.push({id:'A'+Date.now()+i,kod:'VET'+String(db.se++).padStart(4,'0'),nama:n,fon:'601'+Math.floor(10000000+Math.random()*89999999),
+      email:'ejen'+i+'@email.com',negeri:pick(negs),status_pemohon:'Veteran ATM',kad:'V'+Math.floor(100000+Math.random()*899999),
+      exp:'Aktif dalam persatuan atau komuniti veteran',sasar:'3 hingga 5 orang',catatan:'',status:i===3?'MENUNGGU':'LULUS',dibayar:0,
+      lulus:new Date().toISOString(),created:new Date(Date.now()-(20-i)*864e5).toISOString()}); });
+  const lulus=db.agents.filter(a=>a.status==='LULUS');
+  for(let i=0;i<24;i++){
+    const created=new Date(Date.now()-Math.random()*30*864e5);
+    const ej=Math.random()<.75?pick(lulus).kod:'';
+    const dewasa=1+Math.floor(Math.random()*3), kanak=Math.random()<.3?1:0, pax=dewasa+kanak;
+    const r=Math.random(), status=r<.28?'DAFTAR':r<.46?'HUBUNG':r<.62?'MINAT':r<.82?'TEMPAH':'TERBANG';
+    const harga=pax*9990;
+    const l={id:'L'+created.getTime()+i,ref:'VET-'+(db.sl++),nama:pick(NL),fon:'601'+Math.floor(10000000+Math.random()*89999999),
+      email:'jemaah'+i+'@email.com',negeri:pick(negs),status_pemohon:pick(['Veteran ATM','Keluarga veteran','Sedang berkhidmat']),
+      kad:'',bulan:pick(['Disember 2026','Januari 2027','Mac 2027','Belum pasti']),dewasa,kanak,bajet:pick(CFG.BUDGETS),
+      ejen:ej,kod:CFG.VOUCHER,nilai:CFG.AMOUNT,luput:new Date(created.getTime()+90*864e5).toISOString(),
+      status,created:created.toISOString(),notes:[]};
+    if(status==='TEMPAH'||status==='TERBANG'){
+      l.pakej=pick(PK); l.tarikh_terbang=pick(['12 Mac 2027','5 April 2027','20 Februari 2027','8 Jun 2027']);
+      l.harga=harga; l.bayar_jemaah=status==='TERBANG'?harga:(Math.random()<.5?harga:Math.round(harga*(0.2+Math.random()*0.5)/10)*10);
+      l.closed=new Date(created.getTime()+3*864e5).toISOString();
+      l.anggaran=ej?pax*300:0;
+    }
+    if(status==='TERBANG'){
+      l.tebus=new Date(Math.min(Date.now()-864e5,created.getTime()+5*864e5)).toISOString();
+      if(ej){ l.komisen=pax*300; const rr=Math.random();
+        l.komisen_status=rr<.4?'MENUNGGU':'LULUS';
+        if(rr>.75){ l.bayar=new Date().toISOString(); const ag=db.agents.find(a=>a.kod===ej); if(ag) ag.dibayar=(ag.dibayar||0)+l.komisen;
+          db.pay=db.pay||[]; db.pay.unshift({t:l.bayar,kod:ej,nama:ag?ag.nama:'',bil:pax,amaun:l.komisen,ref:l.ref}); }
+      }
+    }
+    db.leads.push(l);
+    logIt(db,`${l.nama} mendaftar e-voucher${ej?' melalui ejen '+ej:''}`,l.ref);
+  }
+  db.leads.sort((a,b)=>new Date(b.created)-new Date(a.created));
+  save(db); render();
+};
+$('reset').onclick=()=>{ if(confirm('Kosongkan semua data prototaip?')){ localStorage.removeItem(KEY); db=load(); render(); } };
+render();
+</script>
+</body></html>
