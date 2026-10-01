@@ -1,8 +1,7 @@
 import React from 'react';
-import {interpolate, useCurrentFrame} from 'remotion';
+import {Img, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {C, FONT, GOLD_GRAD} from './theme';
 import {Stage, PopWord, GoldRule, LabelPill, Check, ClockIcon, cardStyle, prog, ease} from './kit';
-import {TrainSvg} from './Train';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -16,47 +15,28 @@ export const T1: React.FC<{dur: number}> = ({dur}) => (
   </Stage>
 );
 
-/* ---------- T2  "Kita naik train" (train rush-in) ---------- */
-const SpeedLines: React.FC<{p: number}> = ({p}) => (
-  <div style={{position: 'absolute', left: -60, top: 20, width: 640, height: 140, opacity: (1 - p) * 0.9}}>
-    {[0, 1, 2, 3, 4].map((i) => (
-      <div
-        key={i}
-        style={{
-          position: 'absolute',
-          top: 14 + i * 26,
-          left: 20 + (i % 2) * 70,
-          width: 360 - i * 30,
-          height: 4,
-          borderRadius: 4,
-          background: 'linear-gradient(90deg, rgba(255,255,255,0), #fff)',
-          filter: 'drop-shadow(0 2px 6px rgba(18,32,107,.5))',
-          transform: `translateX(${-p * 160}px)`,
-        }}
-      />
-    ))}
-  </div>
-);
+/* ---------- shared: sprites cropped from the original Haramain train animation ---------- */
+const Seq: React.FC<{name: 'bar' | 'train'; k: number; max: number; style?: React.CSSProperties}> = ({name, k, max, style}) => {
+  const i = Math.max(0, Math.min(max, Math.floor(k)));
+  return <Img src={staticFile(`gfx/${name}_${String(i).padStart(3, '0')}.png`)} style={style} />;
+};
+const TRAIN_W = 930; // sprite px
+const TRAIN_H = 505;
+const BAR_W = 880;
+const BAR_H = 222;
 
+/* ---------- T2  "Kita naik train" (original train rush-in) ---------- */
 export const T2: React.FC<{dur: number}> = ({dur}) => {
   const f = useCurrentFrame();
-  const rush = interpolate(f, [4, 30], [0, 1], {...clamp, easing: ease});
-  const x = (1 - rush) * -1250 + interpolate(f, [30, dur], [0, 36], clamp);
-  const settle = prog(f, 26, 16);
-  const bob = Math.sin(f / 5) * 1.5 * rush;
+  const s = 0.62;
+  const drift = interpolate(f, [30, dur], [0, 22], clamp);
+  const shadowIn = prog(f, 20, 12);
   return (
-    <Stage dur={dur} bottom={1470}>
-      <div style={{display: 'flex', alignItems: 'baseline', gap: 26}}>
-        <PopWord text="Kita naik" delay={10} size={84} tilt={-3} />
-      </div>
-      <PopWord text="Train" delay={15} size={196} gold tilt={2} />
-      <div style={{position: 'relative', width: 1080, height: 190, marginTop: 14, overflow: 'visible'}}>
-        <div style={{position: 'absolute', left: 120, top: 0, transform: `translateX(${x}px) translateY(${bob}px)`, filter: 'drop-shadow(0 18px 20px rgba(18,32,107,.45))'}}>
-          <div style={{position: 'relative'}}>
-            <SpeedLines p={settle} />
-            <TrainSvg width={840} id="t2" />
-          </div>
-        </div>
+    <Stage dur={dur} bottom={1480}>
+      <PopWord text="Kita naik" delay={8} size={66} tilt={-3} />
+      <PopWord text="Train" delay={13} size={158} gold tilt={2} />
+      <div style={{position: 'relative', width: TRAIN_W * s, height: TRAIN_H * s, marginTop: 10, transform: `translateX(${drift}px)`, opacity: shadowIn > 0 ? 1 : 0}}>
+        <Seq name="train" k={f - 4} max={28} style={{width: TRAIN_W * s, height: TRAIN_H * s}} />
       </div>
     </Stage>
   );
@@ -102,87 +82,46 @@ export const C1: React.FC<{dur: number}> = ({dur}) => (
   </Stage>
 );
 
-/* ---------- C2  Haramain Speed Train hero ---------- */
-const Route: React.FC<{start: number}> = ({start}) => {
-  const f = useCurrentFrame();
-  const p = interpolate(f, [start, start + 40], [0, 1], {...clamp, easing: ease});
-  const W2 = 470;
-  return (
-    <div style={{position: 'relative', width: W2, height: 86}}>
-      <div style={{position: 'absolute', left: 0, top: 0, fontWeight: 800, fontSize: 21, letterSpacing: '0.16em', color: C.navy}}>MEKAH</div>
-      <div style={{position: 'absolute', right: 0, top: 0, fontWeight: 800, fontSize: 21, letterSpacing: '0.16em', color: C.navy}}>MADINAH</div>
-      <div style={{position: 'absolute', left: 8, right: 8, top: 52, height: 6, borderRadius: 6, background: 'rgba(30,50,200,.14)'}} />
-      <div style={{position: 'absolute', left: 8, top: 52, height: 6, borderRadius: 6, width: (W2 - 16) * p, background: `linear-gradient(90deg, ${C.blue}, #4F6BFF)`}} />
-      <div style={{position: 'absolute', left: 0, top: 44, width: 22, height: 22, borderRadius: 22, background: C.blue, boxShadow: '0 0 0 5px #fff, 0 0 0 7px rgba(30,50,200,.25)'}} />
-      <div style={{position: 'absolute', right: 0, top: 44, width: 22, height: 22, borderRadius: 22, background: p > 0.98 ? C.red : '#fff', border: `4px solid ${C.red}`, boxSizing: 'border-box', boxShadow: '0 0 0 5px #fff'}} />
-      <div style={{position: 'absolute', top: 34, left: 8 + (W2 - 16) * p - 30, opacity: 1 - interpolate(p, [0.9, 1], [0, 1], clamp)}}>
-        <TrainSvg width={60} id="mini" />
-      </div>
-    </div>
-  );
-};
-
+/* ---------- C2  Haramain Speed Train hero (original route bar + train animation) ---------- */
+// Timeline (30fps, graphic starts 31.2s on clip 1): train rushes in low during the close-up shot,
+// route bar lands on the cut to the wide shot at 33.03s (f=55) when "Haramain Speed Train" is said.
 export const C2: React.FC<{dur: number}> = ({dur}) => {
   const f = useCurrentFrame();
-  const rush = interpolate(f, [0, 26], [0, 1], {...clamp, easing: ease});
-  const x = (1 - rush) * -1250 + interpolate(f, [26, dur], [0, 28], clamp);
-  const cardP = prog(f, 54, 20);
-  const timeP = prog(f, 66, 16);
+  const CUT = 55;
+  const sT = 0.72;
+  const sB = 0.82;
+  const trainK = f - 24;
+  const barK = (f - CUT) * 1.7;
+  const barIn = prog(f, CUT, 8);
+  const trainIn = interpolate(f, [24, 30], [0, 1], clamp);
+  const cardP = prog(f, 84, 18);
   return (
-    <Stage dur={dur} bottom={1475}>
-      <div
-        style={{
-          ...cardStyle,
-          width: 920,
-          overflow: 'hidden',
-          opacity: cardP,
-          transform: `translateY(${(1 - cardP) * 50}px) scale(${0.95 + 0.05 * cardP})`,
-        }}
-      >
+    <Stage dur={dur} bottom={1490} exit={9}>
+      <div style={{width: BAR_W * sB, height: BAR_H * sB, opacity: barIn, transform: `translateY(${(1 - barIn) * -14}px)`, marginBottom: 2}}>
+        {f >= CUT - 1 && <Seq name="bar" k={barK} max={74} style={{width: BAR_W * sB, height: BAR_H * sB}} />}
+      </div>
+      <div style={{position: 'relative', width: TRAIN_W * sT, height: TRAIN_H * sT, opacity: trainIn, transform: `translateX(${interpolate(f, [24, dur], [0, 16], clamp)}px)`}}>
+        {f >= 24 && <Seq name="train" k={trainK} max={51} style={{width: TRAIN_W * sT, height: TRAIN_H * sT}} />}
         <div
           style={{
-            background: `linear-gradient(110deg, ${C.navy}, ${C.blue})`,
-            color: '#fff',
-            fontWeight: 800,
-            fontSize: 25,
-            letterSpacing: '0.2em',
-            padding: '15px 0',
-            textAlign: 'center',
-            position: 'relative',
+            ...cardStyle,
+            position: 'absolute',
+            right: -6,
+            top: -4,
+            padding: '10px 26px 10px 14px',
+            borderRadius: 24,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 14,
+            opacity: cardP,
+            transform: `translateY(${(1 - cardP) * 22}px) scale(${0.9 + 0.1 * cardP})`,
           }}
         >
-          HARAMAIN SPEED TRAIN
-          <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: 3, background: `linear-gradient(90deg, transparent, ${C.gold2}, transparent)`}} />
-        </div>
-        <div style={{display: 'flex', alignItems: 'center', padding: '24px 40px 26px', gap: 38}}>
-          <Route start={62} />
-          <div style={{width: 3, alignSelf: 'stretch', background: 'linear-gradient(180deg,transparent,rgba(18,32,107,.2),transparent)'}} />
-          <div style={{display: 'flex', alignItems: 'center', gap: 18, opacity: timeP, transform: `scale(${0.85 + 0.15 * timeP})`}}>
-            <ClockIcon size={68} />
-            <div style={{lineHeight: 1}}>
-              <div style={{fontWeight: 900, fontSize: 60, color: C.navy, letterSpacing: '-0.02em'}}>2 JAM</div>
-              <div style={{fontWeight: 700, fontSize: 19, letterSpacing: '0.34em', color: C.blue, marginTop: 6, paddingLeft: 4}}>SAHAJA</div>
-            </div>
+          <ClockIcon size={54} />
+          <div style={{lineHeight: 1}}>
+            <div style={{fontWeight: 900, fontSize: 46, color: C.navy, letterSpacing: '-0.02em'}}>2 JAM</div>
+            <div style={{fontWeight: 700, fontSize: 16, letterSpacing: '0.34em', color: C.blue, marginTop: 5, paddingLeft: 3}}>SAHAJA</div>
           </div>
-        </div>
-      </div>
-      <div style={{display: 'flex', gap: 16, marginTop: 14}}>
-        {[
-          ['Lebih cepat', 76],
-          ['Lebih selesa', 86],
-        ].map(([t, d]: any) => {
-          const p = prog(f, d, 16);
-          return (
-            <div key={t} style={{...cardStyle, borderRadius: 999, padding: '12px 30px 12px 16px', display: 'flex', alignItems: 'center', gap: 14, fontWeight: 700, fontSize: 31, color: C.navy, opacity: p, transform: `translateY(${(1 - p) * 24}px)`}}>
-              <Check size={38} />
-              {t}
-            </div>
-          );
-        })}
-      </div>
-      <div style={{position: 'relative', width: 1080, height: 150, marginTop: 6}}>
-        <div style={{position: 'absolute', left: 190, top: 0, transform: `translateX(${x}px)`, filter: 'drop-shadow(0 16px 18px rgba(18,32,107,.45))'}}>
-          <TrainSvg width={700} id="c2" />
         </div>
       </div>
     </Stage>
