@@ -1,0 +1,105 @@
+## pt1.wav 0.3 2.2
+  ..0.80: Haa!
+  ..1.00: Haa...
+  ..1.60: Haa, cuba bayar
+  ..1.80: Haa... cuba bayangkan...
+  ..2.00: Cuba bayangkan.
+## pt1.wav 13.7 18.8
+  ..14.20: Om Ra...
+  ..14.50: Omra?
+  ..14.80: umrah di....
+  ..15.10: Omrah dibula...
+  ..15.40: umrah dibulan Rambut.
+  ..15.70: umrah dibulan Ramadhan.
+  ..16.00: Umrah di bulan Ramadhan
+  ..16.30: Umrah di bulan Ramadhan.
+  ..16.60: umrah di bulan Ramadhan.
+  ..17.20: umrah di bulan Ramadhan. Pahalanya
+  ..17.80: umrah di bulan Ramadhan. Pahalanya menyamakan...
+  ..18.10: umrah di bulan Ramadhan. Pahalanya menyamai..
+  ..18.40: umrah di bulan Ramadhan. Pahalanya menyamai haji.
+## pt2.wav 5.6 14.1
+  ..6.10: Kalau nak
+  ..6.50: Kalau nak pergi...
+  ..7.30: Kalau nak pergi, pergi lalu.
+  ..7.70: Kalau nak pergi, pergilah dengan...
+  ..8.10: Kalau nak pergi, pergilah dengan travel.
+  ..8.50: Kalau nak pergi, pergilah dengan travel yang...
+  ..8.90: Kalau nak pergi, pergilah dengan perjalanan yang diperlukan.
+  ..9.30: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai.
+  ..10.50: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai. Kami...
+  ..10.90: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai.
+  ..11.30: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai. Kami di MKM.
+  ..11.70: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai. Kami di MKM Tiketing.
+  ..12.10: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai.
+  ..12.50: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai kami di MKM Ticketing Travel and Tours.
+  ..12.90: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai. Kami di MKM Ticketing Travel and Tours...
+  ..13.30: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai. Kami di MKM Ticketing Travel and Tours mendapat...
+  ..13.70: Kalau nak pergi, pergilah dengan perjalanan yang dipercayai. Kami di MKM Ticketing Travel and Tours mendapat PJH.
+## pt2.wav 14.2 18.8
+  ..14.70: Pada masa
+  ..15.00: Pada hari ini
+  ..15.30: Pengelola Jemaah
+  ..15.60: Pengelola Jemaahat
+  ..15.90: Pengelola Jemaah Haji.
+  ..16.20: Pengelola Jemaah Haji
+  ..16.50: Pengelola Jemaah Al-Hajji, ins
+  ..16.80: Pengelola Jemaah Haji, insyaAllah.
+  ..17.70: Pengelola Jemaah Al-Hajjid, insyaAllah 100%
+  ..18.00: Pengelola Jemaah Al-Hajji, insyaAllah 100%
+  ..18.30: Pengelola Jemaah Haji, insyaAllah 100%.
+  ..18.60: Pengelola Jemaah Al-Hajji, insya'Allah 100% trust.
+## pt3.wav 0.1 5.8
+  ..0.60: Kami mem
+  ..0.90: kami menggunakan
+  ..1.50: kami menggunakan penyelid
+  ..1.80: kami menggunakan penerbangan.
+  ..2.10: kami menggunakan penerbangan dan
+  ..2.40: Kami menggunakan penerbangan direct.
+  ..3.30: Kami menggunakan penerbangan direct amal
+  ..3.90: Kami menggunakan penerbangan direct amal bayi.
+  ..4.20: Kami menggunakan penerbangan direct Amal by M.
+  ..4.50: Kami menggunakan penerbangan direct Amal by Malaysia.
+  ..4.80: Kami menggunakan penerbangan direct Amal by Malaysia Airlines.
+  ..5.10: Kami menggunakan penerbangan direct amal by Malaysia Airlines.
+  ..5.70: Kami menggunakan penerbangan direct amal by Malaysia Airlines dan
+## pt3.wav 6.1 11.9
+  ..6.60: Kami
+  ..6.90: Kami.
+  ..7.20: Kami, tenang.
+  ..7.50: Kami telah...
+  ..7.80: Kami telah 15 tahun.
+  ..8.10: Kami tanah 15 tahun.
+  ..8.40: Kami telah 15 tahun...
+  ..8.70: Kami, tenah 15 tahun berjaya.
+  ..9.00: Kami telah 15 tahun berpengaruh...
+  ..9.30: Kami telah 15 tahun berpengalaman...
+  ..9.90: Kami telah 15 tahun berpengalaman memperoleh...
+  ..10.20: Kami telah 15 tahun berpengalaman membawa...
+  ..10.80: Kami telah 15 tahun berpengalaman membawa Jemaah.
+  ..11.10: Kami telah 15 tahun berpengalaman membawa Jemaah Ungar.
+  ..11.40: Kami telah 15 tahun berpengalaman membawa Jemaah Umrah dan...
+  ..11.70: Kami telah 15 tahun berpengalaman membawa Jemaah Umrah dan Hajar.
+## pt3.wav 12.6 16.9
+  ..13.10: ...
+  ..13.40: ...tel kita
+  ..13.70: kita
+  ..14.00: ...sangat...
+  ..14.30: betel kita sangat dekat.
+  ..15.20: Hotel kita sangat dekat. Hotel kita sangat dekat.
+  ..15.50: Hotel kita sangat dekat. Hotel kita...
+  ..15.80: Hotel kita sangat dekat. Hotel kita sangat dekat.
+  ..16.40: Hotel kita sangat dekat. Hotel kita sangat...
+  ..16.70: Hotel kita sangat dekat. Hotel kita sangat selesa.
+## pt3.wav 17.1 23.4
+  ..17.60: Bila har
+  ..18.00: Bila hotel...
+  ..18.40: Bila hotel dekat,
+  ..19.20: Bila hotel dekat, senanglah.
+  ..20.00: Bila hotel dekat, senanglah nak pergi.
+  ..20.40: Bila hotel dekat, senanglah nak pergi ke bus.
+  ..20.80: Bila hotel dekat, senanglah nak pergi ke masjid.
+  ..21.20: Bila hotel dekat, senanglah nak pergi ke masjid untuk...
+  ..21.60: Bila hotel dekat, senanglah nak pergi ke masjid untuk berbuka.
+  ..22.00: Bila hotel dekat, senanglah nak pergi ke masjid untuk berbuka puasa.
+  ..22.80: Bila hotel dekat, senanglah nak pergi ke masjid untuk berbuka puasa dan berbuka...
