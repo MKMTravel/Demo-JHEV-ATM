@@ -1,0 +1,198 @@
+## q1.wav 0.1 3.9
+  ..0.60: Umbrang
+  ..0.90: 10 lirah
+  ..1.20: Omorah bulan R
+  ..1.50: Umrah bulan Ramadan
+  ..1.80: Umrah bulan Ramadhani
+  ..2.10: umrah bulan Ramadhan ini
+  ..2.70: Umrah bulan Ramadhani Ram...
+  ..3.30: Umrah bulan Ramadhani ramai sangat.
+  ..3.60: Umrah bulan Ramadan ini ramai sangat orang.
+## q1.wav 4.2 9.8
+  ..4.70: Peluang
+  ..5.00: peluang untuk
+  ..5.30: peluang untuk kita...
+  ..5.60: peluang untuk kita pulang.
+  ..5.90: peluang untuk kita pula.
+  ..6.20: peluang untuk kita pula mungkir...
+  ..6.50: Perluang untuk kita pula mungkin.
+  ..7.10: peluang untuk kita pula mungkin sekadar kita.
+  ..7.40: Perluang untuk kita pula mungkin sekali.
+  ..7.70: Perluang untuk kita pula mungkin sekali je.
+  ..8.60: peluang untuk kita pula mungkin sekali saja seumur hidup.
+  ..8.90: Perluang untuk kita pula mungkin sekali saja seumur hidup.
+  ..9.50: Perluang untuk kita pula mungkin sekali sahaja seumur hidup. Jadi...
+## q1.wav 10.0 16.0
+  ..10.50: Tolong!
+  ..11.40: Tolong, jangan...
+  ..11.70: Tolong, jangan.
+  ..12.00: Tolong jangan...
+  ..12.30: Tolong jangan ambil...
+  ..12.60: Tolong jangan ambil risiko.
+  ..14.10: Tolong jangan ambil risiko. Mereka Ramadan ini...
+  ..14.40: Tolong jangan ambil risiko.
+  ..15.00: Tolong jangan ambil risiko. Milih Ramadan ini umrah yang...
+  ..15.30: Tolong jangan ambil risiko. Milih Ramadan ini umrah yang paling...
+  ..15.90: Tolong jangan ambil risiko. Milih Ramadan ini umrah yang paling sibuk.
+## q1.wav 16.5 25.2
+  ..17.00: Ket
+  ..17.35: ...kejap.
+  ..18.05: Hotel
+  ..18.75: Hotel Sur
+  ..19.10: Hotel semua...
+  ..19.45: hotel, semua orang berpikir.
+  ..19.80: di dekat hotel, semua orang berebut.
+  ..20.50: di dekat hotel, semua orang berebut. Jadi...
+  ..20.85: di dekat hotel, semua orang berdebuk. Jadi...
+  ..21.20: di dekat hotel, semua orang berdebuk. Jadi inilah...
+  ..21.55: diikat, hotel, semua orang berebut. Jadi inilah masa...
+  ..21.90: pikat, hotel, semua orang berebut. Jadi inilah masanya.
+  ..22.25: di dekat hotel, semua orang berebut. Jadi inilah masanya untuk
+  ..22.60: liket, hotel, semua orang berebut. Jadi inilah masanya untuk kita.
+  ..22.95: liket, hotel, semua orang berebut. Jadi inilah masanya untuk kita pilih...
+  ..23.30: pikat, hotel, semua orang berebut. Jadi inilah masanya untuk kita pilih...
+  ..23.65: liket, hotel, semua orang berebut. Jadi inilah masanya untuk kita pilih betul-betul...
+  ..24.00: ...tiket, hotel, semua orang berebut. Jadi inilah masanya untuk kita pilih betul-betul...
+  ..24.35: liket, hotel, semua orang berebut. Jadi inilah masanya untuk kita pilih betul-betul
+  ..24.70: ...hotel, semua orang berebut. Jadi inilah masanya untuk kita pilih betul-betul...
+  ..25.05: ...tiket, hotel, semua orang berebut. Jadi inilah masanya untuk kita pilih betul-betul... ...agensi.
+## q1.wav 25.2 28.4
+  ..25.70: Yang....
+  ..26.00: Yang terkait
+  ..26.30: yang trusted.
+  ..26.60: Yang Traste
+  ..26.90: Yang terhati.
+  ..27.20: yang terhati.
+  ..28.10: yang terhendak.
+  ..28.40: yang terasik. Jadi saya nak ajak
+## q1.wav 28.6 36.0
+  ..29.10: Pagihan
+  ..29.40: Pagi omrah
+  ..29.70: Pagi umrah bersama
+  ..30.00: Pegi Umrah bersama MP
+  ..30.30: Pergi Umrah bersama MKF
+  ..30.60: pergi umrah bersama MKM
+  ..30.90: Pegi umrah bersama MKM kerana...
+  ..31.20: Pergi umrah bersama MKM kerana M...
+  ..31.50: Pergi umrah bersama MKM kerana MKM
+  ..31.80: Pegi umrah bersama MKM kerana MKM merupakan...
+  ..32.10: Pergi Umrah bersama MKM kerana MKM merupakan
+  ..32.40: Pergi umrah bersama MKM kerana MKM merupakan salah...
+  ..32.70: Pergi umrah bersama MKM kerana MKM merupakan salah satu...
+  ..33.30: Pergi Umrah bersama MKM kerana MKM merupakan salah satu travel agen...
+  ..33.60: Pergi Umrah bersama MKM kerana MKM merupakan salah satu travel agency
+  ..34.20: pergi omrah bersama MKM kerana MKM merupakan salah satu travel agency yang
+  ..34.50: Pergi Umrah bersama MKM kerana MKM merupakan salah satu travel agency yang memegang...
+  ..34.80: Pergi umrah bersama MKM kerana MKM merupakan salah satu travel agency yang memegang
+  ..35.10: Pergi Umrah bersama MKM kerana MKM merupakan salah satu travel agency yang memegang
+  ..35.40: Pergi Umrah bersama MKM kerana MKM merupakan salah satu travel agency yang memegang PJH.
+## q1.wav 35.0 40.6
+  ..35.50: PGH
+  ..35.80: P.J.
+  ..36.10: Piji Heshi.
+  ..36.40: ...piji-jihes.
+  ..36.70: Biji ish. Insya'Allah.
+  ..37.30: Biji ish. Insya'Allah...
+  ..37.60: Pujian.
+  ..37.90: PGH. Insya'Allah, rekod terbang...
+  ..38.20: Insya'Allah, rekod terbang kami.
+  ..38.80: Insya'Allah, rekod terbang kami serba...
+  ..39.10: Insya'Allah, rekod terbang kami 100...
+  ..39.40: Insya'Allah, rekod terbang kami 100.
+  ..39.70: Insya'Allah, rekod terbang kami 100%
+  ..40.00: Insya'Allah, rekod terbang kami 100%.
+## q2.wav 0.1 5.3
+  ..0.60: Pada masa
+  ..0.90: Kualar bang
+  ..1.20: Punyar bangan
+  ..1.50: Penerbangan Direct?
+  ..1.80: penerbangan direct mengambil alat
+  ..2.10: penerbangan direct menggunakan...
+  ..2.40: penerbangan direct menggunakan
+  ..2.70: Penerbangan Direct menggunakan...
+  ..3.00: Penerbangan Direct menggunakan amal...
+  ..3.30: Penerbangan direct menggunakan amal...
+  ..3.60: Penerbangan Direct menggunakan amal bayi.
+  ..3.90: Penerbangan Direkt menggunakan Amal B.A.I.
+  ..4.20: Penerbangan Direct menggunakan Amal by Malaysia.
+  ..4.50: Penerbangan Direct menggunakan Amal by Malaysia Air.
+  ..4.80: Penerbangan Direct menggunakan Amal by Malaysia Airlines.
+  ..5.10: Penerbangan Direkt menggunakan Amal by Malaysia Airlines.
+## q2.wav 5.6 12.4
+  ..6.10: Pengalaman
+  ..6.40: pengalaman
+  ..6.70: Pengalaman
+  ..7.00: Pengalaman 5%...
+  ..7.30: Pengalaman 15 tahun.
+  ..7.60: Pengalaman 15 tahun...
+  ..7.90: Pengalaman 15 tahun membawa...
+  ..8.20: Pengalaman 15 tahun membawa jubah
+  ..8.50: Pengalaman 15 tahun membawa Jemaah
+  ..8.80: Pengalaman 15 tahun membawa jubahah?
+  ..9.10: Pengalaman 15 tahun membawa jubahah
+  ..9.40: Pengalaman 15 tahun membawa Jemaah Hotel
+  ..9.70: Pengalaman 15 tahun membawa Jemaah hotel.
+  ..10.00: Pengalaman 15 tahun membawa Jemaah Hotel S...
+  ..10.30: Pengalaman 15 tahun membawa jumah hotel selesai.
+  ..10.60: Pengalaman 15 tahun membawa jumah-ah. Hotel selesa.
+  ..10.90: Pengalaman 15 tahun membawa jumahah Hotel selesa
+  ..11.20: Pengalaman 15 tahun membawa Jemaah Hotel selesa dan menarik
+  ..11.50: Pengalaman 15 tahun membawa jumah-ah. Hotel selesa dan segera.
+  ..11.80: Pengalaman 15 tahun membawa jumahah, hotel selesa dan santai.
+  ..12.10: Pengalaman 15 tahun membawa Jemaah Hotel selesa dan sangat dekat
+## q2.wav 12.8 22.9
+  ..13.30: So
+  ..13.65: jadi
+  ..14.00: Jadi, saya mahu bercak
+  ..14.35: Jadi, bilik hotel...
+  ..14.70: Jadi, bilik hotel di...
+  ..15.05: Jadi, bila hotel dekat dengan...
+  ..15.40: Jadi, bila hotel dekat, dia akan berasal.
+  ..15.75: Jadi, bila hotel dekat dengan masjid...
+  ..16.45: Jadi, bila hotel dekat dengan masjid, nak kiat...
+  ..16.80: Jadi, bila hotel dekat dengan masjid, nak kiam.
+  ..17.15: Jadi, bila hotel dekat dengan masjid, nak kiam, nak...
+  ..17.85: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih...
+  ..18.55: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat...
+  ..18.90: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah.
+  ..19.25: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah dan senang.
+  ..19.60: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah dan selesa.
+  ..20.65: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah dan selesa. Cenderhati.
+  ..21.00: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah dan selesa. Cenderhati dan...
+  ..21.35: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah dan selesa. Cenderhati dan sedih.
+  ..21.70: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah dan selesa. Cenderhati dan sed-bagat.
+  ..22.05: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah dan selesa. Cenderhati dan set bagasi...
+  ..22.40: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah dan selesa. Cenderhati dan set bagasi ekskursi...
+  ..22.75: Jadi, bila hotel dekat dengan masjid, nak kiam, nak terawih sangat mudah dan selesa. Cenderhati dan set bagasi eksklusif.
+## q2.wav 23.0 25.4
+  ..23.50: Kita akan...
+  ..23.80: Kita akan beri
+  ..24.10: Kita akan berikan...
+  ..25.00: Kita akan berikan secara percaya.
+  ..25.30: kita akan berikan secara percuma.
+## q2.wav 26.6 32.2
+  ..27.10: John?
+  ..27.70: Jom, dah f*
+  ..28.00: Jom, daftar.
+  ..28.30: Jom, daftar umum.
+  ..28.60: Jom, daftar umrah.
+  ..28.90: Hari ini, kita akan berbual.
+  ..29.20: Hari ini, kita akan menjalin umrah Ramadhan.
+  ..29.50: Hari ini, leftar umrah Ramadhan.
+  ..29.80: Jom, daftar Umrah Ramadhan bersama...
+  ..30.10: Jom daftar Umrah Ramadhan bersama M.K.
+  ..30.40: Jom daftar Umrah Ramadhan bersama MKM.
+  ..30.70: Jom daftar Umrah Ramadhaal bersama MKM.
+  ..31.00: Jom, daftar Umrah Ramadhan bersama MKM.
+  ..31.30: Jom daftar Umrah Ramadhan bersama MKM.
+  ..31.90: Jom daftar Umrah Ramadhan bersama MKM. Slide sangat terh...
+  ..32.20: Jom daftar Umrah Ramadhan bersama MKM. Slide sangat terhat.
+## q2.wav 37.9 41.3
+  ..38.40: Nah, teng
+  ..38.70: Nak tengok tar
+  ..39.00: Nak tengok tarikh yang
+  ..39.30: Nak tengok tarikh yang masih ada
+  ..39.60: Nak tengok tarikh yang masih ada.
+  ..40.20: Nak tengok tarikh yang masih ada, klik.
+  ..40.80: Nak tengok tarikh yang masih ada, klik link.
+  ..41.10: Nak tengok tarikh yang masih ada? Klik link di bawah.

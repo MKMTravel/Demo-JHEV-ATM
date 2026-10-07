@@ -163,8 +163,8 @@ export const CounterRow: React.FC<{at: number; to: number; unit: string; pre?: s
 };
 
 // 3) NAVY TITLE PANEL (ref 1002_13 "Hotel di Makkah"): gold eyebrow + white title with gold keyword
-export const NavyPanel: React.FC<{dur: number; eyebrow: string; title: string; title2?: string; gold?: string[]; y: number; width?: number}> =
-({dur, eyebrow, title, title2, gold = [], y, width = 800}) => {
+export const NavyPanel: React.FC<{dur: number; eyebrow: string; title: string; title2?: string; gold?: string[]; y: number; width?: number; chip?: string; chipAt?: number}> =
+({dur, eyebrow, title, title2, gold = [], y, width = 800, chip, chipAt = 30}) => {
   const {f, p, out, blur} = useInOut(dur, 16);
   const shine = interpolate(f, [8, 36], [-0.3, 1.3], CL);
   const line = interpolate(f, [10, 34], [0, 1], {...CL, easing: EASE});
@@ -179,12 +179,16 @@ export const NavyPanel: React.FC<{dur: number; eyebrow: string; title: string; t
         <div style={{position: 'absolute', left: 0, bottom: 0, height: 5, width: `${line * 100}%`, background: `linear-gradient(90deg, ${C.g3}, ${C.g1}, ${C.g2})`}} />
       </div>
       <Sparkle x={width - 14} y={-4} size={56} at={12} dur={dur} />
+      {chip && (() => { const c = interpolate(f, [chipAt, chipAt + 12], [0, 1], {...CL, easing: EASE}); return (
+        <div style={{position: 'absolute', left: 0, right: 0, bottom: -76, display: 'flex', justifyContent: 'center', opacity: c, transform: `translateY(${(1 - c) * -16}px) scale(${0.9 + 0.1 * c})`}}>
+          <div style={{padding: '10px 26px', borderRadius: 999, background: GOLD, color: C.navy, fontFamily: SANS, fontWeight: 800, fontSize: 28, letterSpacing: '0.16em', boxShadow: '0 10px 22px rgba(6,10,40,.4)'}}>{chip}</div>
+        </div>); })()}
     </div>
   );
 };
 
 // 4) CTA: question line + white pill with blue text and pulsing red arrow (ref 1002_12 / 1002_13 ending)
-export const CTA: React.FC<{dur: number; q?: string; qGold?: string[]; label?: string; sub?: string; y?: number}> = ({dur, q, qGold = [], label = 'TEKAN LINK DI BAWAH', sub, y = 1400}) => {
+export const CTA: React.FC<{dur: number; q?: string; q2?: string; qGold?: string[]; label?: string; sub?: string; y?: number}> = ({dur, q, q2, qGold = [], label = 'TEKAN LINK DI BAWAH', sub, y = 1400}) => {
   const {f, p, out, blur} = useInOut(dur, 16);
   const {fps} = useVideoConfig();
   const pill = spring({frame: f - 10, fps, config: {damping: 12, stiffness: 150}});
@@ -193,7 +197,7 @@ export const CTA: React.FC<{dur: number; q?: string; qGold?: string[]; label?: s
   const ring = ((f - 20) % 30) / 30;
   return (
     <div style={{position: 'absolute', left: 0, right: 0, top: y, transform: 'translateY(-50%)', opacity: out, filter: `blur(${blur}px)`, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22}}>
-      {q && <div style={{opacity: p, transform: `translateY(${(1 - p) * 20}px)`, filter: SOFT}}><RevealLine text={q} gold={qGold} at={0} size={52} /></div>}
+      {q && <div style={{opacity: p, transform: `translateY(${(1 - p) * 20}px)`, filter: SOFT}}><RevealLine text={q} gold={qGold} at={0} size={52} />{q2 && <RevealLine text={q2} gold={qGold} at={5} size={52} />}</div>}
       <div style={{position: 'relative', transform: `scale(${pill * pulse})`}}>
         {f > 20 && <div style={{position: 'absolute', inset: 0, borderRadius: 999, boxShadow: `0 0 0 ${ring * 22}px rgba(255,255,255,${0.45 * (1 - ring)})`}} />}
         <div style={{display: 'flex', alignItems: 'center', gap: 20, padding: '20px 22px 20px 44px', borderRadius: 999, background: 'linear-gradient(180deg,#FFFFFF,#EEF1FF)',

@@ -68,7 +68,7 @@ export const PricePop: React.FC<{dur: number; price: string; label: string; cx: 
 };
 
 // SYNC TITLE (mix): calm word-by-word reveal synced to speech, with optional punch words (gold Anton + red flash pop)
-export type SW = {t: string; at: number; gold?: boolean; punch?: number};
+export type SW = {t: string; at: number; gold?: boolean; punch?: number; s?: number};
 export const SyncTitle: React.FC<{eyebrow?: string; eyebrowAt?: number; rows: SW[][]; y: number; dur: number; size?: number}> = ({eyebrow, eyebrowAt = 0, rows, y, dur, size = 72}) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -90,10 +90,11 @@ export const SyncTitle: React.FC<{eyebrow?: string; eyebrowAt?: number; rows: SW
               );
             }
             const p = interpolate(f, [w.at, w.at + 12], [0, 1], {...CL, easing: EASE});
+            const sz = w.s ?? size;
             return (
-              <span key={i} style={{display: 'inline-block', overflow: 'hidden', padding: `${size * 0.08}px ${size * 0.04}px ${size * 0.14}px`, margin: `-${size * 0.08}px -${size * 0.04}px -${size * 0.14}px`,
+              <span key={i} style={{display: 'inline-block', overflow: 'hidden', padding: `${sz * 0.08}px ${sz * 0.04}px ${sz * 0.14}px`, margin: `-${sz * 0.08}px -${sz * 0.04}px -${sz * 0.14}px`,
                 filter: 'drop-shadow(0 4px 14px rgba(8,14,60,.6)) drop-shadow(0 1px 2px rgba(8,14,60,.7))'}}>
-                <span style={{display: 'inline-block', transform: `translateY(${(1 - p) * 110}%)`, fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 1.04, letterSpacing: '-0.015em', whiteSpace: 'nowrap',
+                <span style={{display: 'inline-block', transform: `translateY(${(1 - p) * 110}%)`, fontFamily: SANS, fontWeight: 800, fontSize: sz, lineHeight: 1.04, letterSpacing: '-0.015em', whiteSpace: 'nowrap',
                   ...(w.gold ? {background: GOLD, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent'} : {color: C.white})}}>{w.t}</span>
               </span>
             );
