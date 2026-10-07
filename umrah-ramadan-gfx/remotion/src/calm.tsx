@@ -105,6 +105,7 @@ export const InfoCard: React.FC<{dur: number; tag?: string; icon?: IconKind; eye
           </div>
         </div>
         {(rows.length > 0 || counter) && <div style={{height: 2, background: 'rgba(18,32,107,.1)', margin: '26px 0 10px', transform: `scaleX(${goldLine})`, transformOrigin: 'left'}} />}
+        {counter && <CounterRow {...counter} />}
         {rows.map((r, i) => {
           const rp = interpolate(f, [r.at, r.at + 12], [0, 1], {...CL, easing: EASE});
           const ck = spring({frame: f - r.at - 2, fps, config: {damping: 11, stiffness: 180}});
@@ -122,7 +123,6 @@ export const InfoCard: React.FC<{dur: number; tag?: string; icon?: IconKind; eye
             </div>
           );
         })}
-        {counter && <CounterRow {...counter} />}
         {/* gold hairline */}
         <div style={{position: 'absolute', left: 0, bottom: 0, height: 5, width: `${goldLine * 100}%`, background: `linear-gradient(90deg, ${C.g3}, ${C.g1}, ${C.g2})`}} />
       </div>
@@ -204,7 +204,7 @@ export const CTA: React.FC<{dur: number; q?: string; qGold?: string[]; label?: s
           </div>
         </div>
       </div>
-      {sub && <div style={{opacity: interpolate(f, [18, 28], [0, 1], CL), padding: '8px 22px', borderRadius: 999, background: C.navy, color: C.g1, fontFamily: SANS, fontWeight: 800, fontSize: 24, letterSpacing: '0.18em', boxShadow: '0 8px 18px rgba(6,10,40,.4)'}}>{sub}</div>}
+      {sub && <div style={{opacity: interpolate(f, [18, 28], [0, 1], CL), padding: '8px 22px', borderRadius: 999, background: GOLD, color: C.navy, fontFamily: SANS, fontWeight: 800, fontSize: 24, letterSpacing: '0.18em', boxShadow: '0 8px 18px rgba(6,10,40,.4)'}}>{sub}</div>}
     </div>
   );
 };
@@ -226,7 +226,7 @@ export const EndCard: React.FC<{dur: number; eyebrow: string; title: string; sub
         <AbsoluteFill style={{opacity: 0.07, backgroundImage: 'linear-gradient(rgba(255,255,255,.9) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(255,255,255,.9) 1.5px, transparent 1.5px)',
           backgroundSize: '72px 72px', backgroundPosition: `0 ${f * 0.5}px`, maskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, #000 30%, transparent 100%)'}} />
         <AbsoluteFill style={{background: 'radial-gradient(60% 26% at 50% 106%, rgba(242,199,100,.4) 0%, transparent 100%)'}} />
-        <div style={{position: 'absolute', left: 0, right: 0, top: 470, textAlign: 'center'}}>
+        <div style={{position: 'absolute', left: 0, right: 0, top: 400, textAlign: 'center'}}>
           <Eyebrow t={eyebrow} at={12} size={30} />
           <div style={{marginTop: 18, filter: 'drop-shadow(0 6px 18px rgba(4,8,35,.5))'}}>
             {title.split('\n').map((l, i) => <RevealLine key={i} text={l} gold={['RAMADAN']} at={16 + i * 6} size={i === 0 ? 120 : 96} />)}
@@ -234,13 +234,13 @@ export const EndCard: React.FC<{dur: number; eyebrow: string; title: string; sub
           <div style={{marginTop: 14, opacity: interpolate(f, [26, 40], [0, 1], CL), fontFamily: SANS, fontStyle: 'italic', fontWeight: 600, fontSize: 40, color: 'rgba(255,255,255,.88)'}}>{sub}</div>
           <div style={{margin: '30px auto 0', width: 120 * divider, height: 5, borderRadius: 3, background: GOLD}} />
         </div>
-        <div style={{position: 'absolute', left: 120, right: 100, top: 960}}>
+        <div style={{position: 'absolute', left: 110, right: 90, top: 870}}>
           {items.map((t, i) => {
             const at = 46 + i * 9;
             const rp = interpolate(f, [at, at + 12], [0, 1], {...CL, easing: EASE});
             const ck = spring({frame: f - at - 2, fps, config: {damping: 11, stiffness: 180}});
             return (
-              <div key={i} style={{display: 'flex', alignItems: 'center', gap: 22, height: 74, opacity: rp, transform: `translateX(${(1 - rp) * -30}px)`}}>
+              <div key={i} style={{display: 'flex', alignItems: 'center', gap: 22, height: 72, opacity: rp, transform: `translateX(${(1 - rp) * -30}px)`}}>
                 <div style={{width: 46, height: 46, borderRadius: 23, background: GOLD, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `scale(${ck})`, flexShrink: 0, boxShadow: '0 4px 10px rgba(0,0,0,.25)'}}>
                   <Glyph kind="check" size={30} color={C.navy} />
                 </div>
@@ -249,7 +249,7 @@ export const EndCard: React.FC<{dur: number; eyebrow: string; title: string; sub
             );
           })}
         </div>
-        <div style={{position: 'absolute', left: 0, right: 0, top: 1350, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22}}>
+        <div style={{position: 'absolute', left: 0, right: 0, top: 1355, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22}}>
           <div style={{transform: `scale(${pill * pulse})`, display: 'flex', alignItems: 'center', gap: 20, padding: '20px 22px 20px 44px', borderRadius: 999, background: 'linear-gradient(180deg,#FFFFFF,#EEF1FF)', boxShadow: '0 18px 40px rgba(4,8,35,.5)'}}>
             <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 44, color: C.blue, letterSpacing: '0.02em'}}>{cta}</div>
             <div style={{width: 64, height: 64, borderRadius: 32, background: `linear-gradient(180deg,#E01818,${C.red})`, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>

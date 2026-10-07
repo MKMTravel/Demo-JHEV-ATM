@@ -9,7 +9,7 @@ export const C = {navy: '#12206B', blue: '#1E32C8', red: '#C80000', g1: '#FFE9A8
 export const GOLD = `linear-gradient(180deg, ${C.g1} 0%, ${C.g2} 45%, ${C.g3} 100%)`;
 export const DISPLAY = 'Anton, Impact, sans-serif';            // condensed: hook stack, punch words, sticker labels
 export const SANS = '"Plus Jakarta Sans", sans-serif';           // brand font: captions, CTA, labels
-export const POP_SHADOW = `drop-shadow(0 5px 0 ${C.navy}) drop-shadow(0 12px 22px rgba(6,10,40,.45))`;
+export const POP_SHADOW = `drop-shadow(0 0 1.5px ${C.navy}) drop-shadow(0 0 1.5px ${C.navy}) drop-shadow(0 5px 0 ${C.navy}) drop-shadow(0 12px 22px rgba(6,10,40,.45))`;
 export const EASE = Easing.bezier(0.16, 1, 0.3, 1);
 const CL = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
