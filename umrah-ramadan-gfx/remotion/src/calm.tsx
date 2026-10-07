@@ -188,7 +188,7 @@ export const NavyPanel: React.FC<{dur: number; eyebrow: string; title: string; t
 };
 
 // 4) CTA: question line + white pill with blue text and pulsing red arrow (ref 1002_12 / 1002_13 ending)
-export const CTA: React.FC<{dur: number; q?: string; q2?: string; qGold?: string[]; label?: string; sub?: string; y?: number}> = ({dur, q, q2, qGold = [], label = 'TEKAN LINK DI BAWAH', sub, y = 1400}) => {
+export const CTA: React.FC<{dur: number; q?: string; q2?: string; qGold?: string[]; label?: string; sub?: string; y?: number; icon?: IconKind}> = ({dur, q, q2, qGold = [], label = 'TEKAN LINK DI BAWAH', sub, y = 1400, icon = 'arrowDown'}) => {
   const {f, p, out, blur} = useInOut(dur, 16);
   const {fps} = useVideoConfig();
   const pill = spring({frame: f - 10, fps, config: {damping: 12, stiffness: 150}});
@@ -204,7 +204,7 @@ export const CTA: React.FC<{dur: number; q?: string; q2?: string; qGold?: string
           boxShadow: '0 18px 40px rgba(6,10,40,.45), 0 0 0 3px rgba(30,50,200,.18) inset'}}>
           <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 44, color: C.blue, letterSpacing: '0.02em'}}>{label}</div>
           <div style={{width: 64, height: 64, borderRadius: 32, background: `linear-gradient(180deg,#E01818,${C.red})`, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 6px 14px rgba(200,0,0,.4)'}}>
-            <div style={{transform: `translateY(${bob}px)`}}><Glyph kind="arrowDown" size={40} color={C.white} /></div>
+            <div style={{transform: icon === 'arrowDown' ? `translateY(${bob}px)` : `rotate(${-45 + bob * 2}deg) scale(${1 + Math.abs(bob) * 0.012})`}}><Glyph kind={icon} size={40} color={C.white} /></div>
           </div>
         </div>
       </div>
@@ -214,7 +214,7 @@ export const CTA: React.FC<{dur: number; q?: string; q2?: string; qGold?: string
 };
 
 // 5) END CARD: full-frame summary plate (navy/blue), checklist recap + CTA. Content kept inside the logo-bug safe zone.
-export const EndCard: React.FC<{dur: number; eyebrow: string; title: string; sub: string; items: string[]; cta?: string; chip?: string}> = ({dur, eyebrow, title, sub, items, cta = 'TEKAN LINK DI BAWAH', chip}) => {
+export const EndCard: React.FC<{dur: number; eyebrow: string; title: string; sub: string; items: string[]; cta?: string; chip?: string; icon?: IconKind}> = ({dur, eyebrow, title, sub, items, cta = 'TEKAN LINK DI BAWAH', chip, icon = 'arrowDown'}) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const wipe = interpolate(f, [0, 16], [0, 1], {...CL, easing: Easing.bezier(0.7, 0, 0.3, 1)});
@@ -257,7 +257,7 @@ export const EndCard: React.FC<{dur: number; eyebrow: string; title: string; sub
           <div style={{transform: `scale(${pill * pulse})`, display: 'flex', alignItems: 'center', gap: 20, padding: '20px 22px 20px 44px', borderRadius: 999, background: 'linear-gradient(180deg,#FFFFFF,#EEF1FF)', boxShadow: '0 18px 40px rgba(4,8,35,.5)'}}>
             <div style={{fontFamily: SANS, fontWeight: 800, fontSize: 44, color: C.blue, letterSpacing: '0.02em'}}>{cta}</div>
             <div style={{width: 64, height: 64, borderRadius: 32, background: `linear-gradient(180deg,#E01818,${C.red})`, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-              <div style={{transform: `translateY(${bob}px)`}}><Glyph kind="arrowDown" size={40} color={C.white} /></div>
+              <div style={{transform: icon === 'arrowDown' ? `translateY(${bob}px)` : `rotate(${-45 + bob * 2}deg) scale(${1 + Math.abs(bob) * 0.012})`}}><Glyph kind={icon} size={40} color={C.white} /></div>
             </div>
           </div>
           {chip && <div style={{opacity: interpolate(f, [70 + items.length * 9, 82 + items.length * 9], [0, 1], CL), padding: '9px 24px', borderRadius: 999, background: C.red, color: C.white, fontFamily: SANS, fontWeight: 800, fontSize: 24, letterSpacing: '0.18em'}}>{chip}</div>}

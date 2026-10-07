@@ -28,7 +28,11 @@ MOV files and preview are not committed (too large). v1 source kept as Root2_cal
 | 17_T6-JomDaftar | Pt2 | 00:26.75 | 01:07.34 | A panel |
 | 18_P8-SlotSangatTerhad | Pt2 | 00:31.20 | 01:11.79 | B punch |
 | 19_CTA-KlikLink | Pt2 | 00:37.95 | 01:18.54 | A CTA |
+| 19b_CTA-KlikLinkDiBio (option) | Pt2 | 00:37.95 | 01:18.54 | A CTA |
 | 20_EndCard-Summary_part1 / 2 / 3 | Lepas Pt2 | +0s / +2s / +4s | 01:22.50 / 01:24.50 / 01:26.50 | plate |
+| 20b_EndCard-Summary-DiBio_part1 / 2 / 3 (option) | Lepas Pt2 | +0s / +2s / +4s | 01:22.50 / 01:24.50 / 01:26.50 | plate |
+
+Options: 19b/20b say "KLIK LINK DI BIO" (link icon) instead of "KLIK LINK DI BAWAH". Use one or the other.
 
 ## Wording to verify
 - "agensi yang dipercayai": audio at Pt1 25.3s is unclear (sounds like "yang trusted")

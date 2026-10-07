@@ -114,9 +114,17 @@ export const GFX2: G[] = [
   {id: '19_CTA-KlikLink', part: 2, from: 37.95, to: 41.9, el: (L, dur) => (
     <CTA dur={dur} y={1330} q="Nak tengok tarikh" q2="yang masih ada?" qGold={['tarikh']} label="KLIK LINK DI BAWAH" sub="SLOT TERHAD" />
   )},
+  // option: link in bio
+  {id: '19b_CTA-KlikLinkDiBio', part: 2, from: 37.95, to: 41.9, el: (L, dur) => (
+    <CTA dur={dur} y={1330} q="Nak tengok tarikh" q2="yang masih ada?" qGold={['tarikh']} label="KLIK LINK DI BIO" sub="SLOT TERHAD" icon="link" />
+  )},
   // ================= END CARD
   {id: '20_EndCard-Summary', part: 0, from: 0, to: 6, el: (L, dur) => (
     <EndCard dur={dur} eyebrow="JOM DAFTAR" title={'UMRAH\nRAMADAN'} sub="peluang mungkin sekali seumur hidup" cta="KLIK LINK DI BAWAH" chip="SLOT SANGAT TERHAD"
+      items={['Status PJH, Pengelola Jemaah Haji', 'Rekod terbang 100%', 'Direct flight AMAL by Malaysia Airlines', '15 tahun pengalaman', 'Hotel selesa & dekat masjid', 'Cenderahati & set bagasi percuma']} />
+  )},
+  {id: '20b_EndCard-Summary-DiBio', part: 0, from: 0, to: 6, el: (L, dur) => (
+    <EndCard dur={dur} eyebrow="JOM DAFTAR" title={'UMRAH\nRAMADAN'} sub="peluang mungkin sekali seumur hidup" cta="KLIK LINK DI BIO" chip="SLOT SANGAT TERHAD" icon="link"
       items={['Status PJH, Pengelola Jemaah Haji', 'Rekod terbang 100%', 'Direct flight AMAL by Malaysia Airlines', '15 tahun pengalaman', 'Hotel selesa & dekat masjid', 'Cenderahati & set bagasi percuma']} />
   )},
 ];
