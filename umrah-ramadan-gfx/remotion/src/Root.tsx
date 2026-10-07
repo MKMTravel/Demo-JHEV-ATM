@@ -2,7 +2,7 @@ import React from 'react';
 import {Composition, AbsoluteFill} from 'remotion';
 import {HookStack, PunchWords, DuoCaption, PopIcon} from './kinpop';
 import {KineticTitle, InfoCard, NavyPanel, CTA, EndCard} from './calm';
-import {QuotePanel, PricePop} from './extras';
+import {QuotePanel, PricePop, SyncTitle} from './extras';
 
 const FPS = 30;
 // Each graphic: part (which source clip), from/to in seconds on that clip, el(L, dur) where L(t) converts clip seconds to local frames.
@@ -29,6 +29,14 @@ export const GFX: G[] = [
       phrases={[{t: 'Umrah di bulan Ramadan', at: 4}, {t: 'MENYAMAI HAJI', at: 10, gold: true}, {t: 'bersamaku.', at: 16}]} />
   )},
   // ---------- PART 2
+  {id: '05b_P8-RamaiNakKejar', part: 2, from: 0.25, to: 5.35, el: (L, dur) => (<>
+    <SyncTitle y={1250} dur={dur} eyebrow="SEBAB ITU" eyebrowAt={L(0.3)} size={70}
+      rows={[[{t: 'RAMAI', at: L(1.3)}, {t: 'YANG', at: L(2.05)}, {t: 'NAK', at: L(2.4)}],
+        [{t: 'KEJAR', at: L(2.6), punch: 170}],
+        [{t: 'UMRAH', at: L(3.6)}, {t: 'BULAN', at: L(4.3)}, {t: 'RAMADAN', at: L(4.55), gold: true}]]} />
+    <PopIcon kind="plane" x={170} y={600} size={170} rot={-10} at={L(3.6)} fill="white" tile dur={dur} />
+    <PopIcon kind="moon" x={915} y={540} size={170} rot={10} at={L(4.55)} fill="blue" tile dur={dur} />
+  </>)},
   {id: '06_T3-TravelDipercayai', part: 2, from: 6.75, to: 10.45, el: (L, dur) => (
     <KineticTitle eyebrow="KALAU NAK PERGI" lines={['PERGILAH DENGAN', 'TRAVEL YANG', 'DIPERCAYAI']} gold={['DIPERCAYAI']} sizes={[70, 70, 104]} y={1060} dur={dur} at={0} />
   )},

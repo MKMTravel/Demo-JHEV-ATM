@@ -14,6 +14,7 @@ The MOV files and the preview are not committed (too large). Re-render with `rem
 | 03_T1-BerbukaDepanKaabah.mov | Pt1 | 00:05.62 | 00:05.62 | 4.43s | normal |
 | 04_P2-PahalaMenyamaiHaji.mov | Pt1 | 00:13.85 | 00:13.85 | 5.00s | normal |
 | 05_T2-Hadis.mov | Pt1 | 00:19.05 | 00:19.05 | 2.82s | normal |
+| 05b_P8-RamaiNakKejar.mov | Pt2 | 00:00.25 | 00:22.12 | 5.10s | normal |
 | 06_T3-TravelDipercayai.mov | Pt2 | 00:06.75 | 00:28.62 | 3.70s | normal |
 | 07_C1-StatusPJH.mov | Pt2 | 00:10.55 | 00:32.42 | 6.05s | normal |
 | 08_P3-100Trusted.mov | Pt2 | 00:16.95 | 00:38.82 | 2.23s | normal |

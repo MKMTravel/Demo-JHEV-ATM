@@ -66,3 +66,40 @@ export const PricePop: React.FC<{dur: number; price: string; label: string; cx: 
     </AbsoluteFill>
   );
 };
+
+// SYNC TITLE (mix): calm word-by-word reveal synced to speech, with optional punch words (gold Anton + red flash pop)
+export type SW = {t: string; at: number; gold?: boolean; punch?: number};
+export const SyncTitle: React.FC<{eyebrow?: string; eyebrowAt?: number; rows: SW[][]; y: number; dur: number; size?: number}> = ({eyebrow, eyebrowAt = 0, rows, y, dur, size = 72}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const {out, blur} = useInOut(dur);
+  const drift = interpolate(f, [0, dur], [1, 1.03]);
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: y, transform: `translateY(-50%) scale(${drift})`, opacity: out, filter: `blur(${blur}px)`, textAlign: 'center'}}>
+      {eyebrow && <div style={{marginBottom: 16, filter: 'drop-shadow(0 3px 10px rgba(8,14,60,.6))'}}><Eyebrow t={eyebrow} at={eyebrowAt} /></div>}
+      {rows.map((row, ri) => (
+        <div key={ri} style={{display: 'flex', justifyContent: 'center', alignItems: 'flex-end', gap: size * 0.26, marginTop: ri ? 4 : 0}}>
+          {row.map((w, i) => {
+            if (w.punch) {
+              const s = f < w.at ? 0 : spring({frame: f - w.at, fps, config: {damping: 10, stiffness: 200, mass: 0.6}});
+              const flash = f < w.at ? 0 : interpolate(f, [w.at, w.at + 3, w.at + 11], [0.95, 0.95, 0], CL);
+              return (
+                <div key={i} style={{opacity: Math.min(1, s * 2), transform: `translateY(${(1 - Math.min(s, 1)) * 50}px) scale(${0.85 + 0.15 * s})`, filter: `${POP_SHADOW} blur(${Math.max(0, 1 - s * 1.5) * 8}px)`}}>
+                  <GoldWord t={w.t} size={w.punch} flash={flash} />
+                </div>
+              );
+            }
+            const p = interpolate(f, [w.at, w.at + 12], [0, 1], {...CL, easing: EASE});
+            return (
+              <span key={i} style={{display: 'inline-block', overflow: 'hidden', padding: `${size * 0.08}px ${size * 0.04}px ${size * 0.14}px`, margin: `-${size * 0.08}px -${size * 0.04}px -${size * 0.14}px`,
+                filter: 'drop-shadow(0 4px 14px rgba(8,14,60,.6)) drop-shadow(0 1px 2px rgba(8,14,60,.7))'}}>
+                <span style={{display: 'inline-block', transform: `translateY(${(1 - p) * 110}%)`, fontFamily: SANS, fontWeight: 800, fontSize: size, lineHeight: 1.04, letterSpacing: '-0.015em', whiteSpace: 'nowrap',
+                  ...(w.gold ? {background: GOLD, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent'} : {color: C.white})}}>{w.t}</span>
+              </span>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+};
