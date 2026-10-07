@@ -85,6 +85,9 @@ export const GFX: G[] = [
   {id: '17b_CTA-KlikLinkDiBio', part: 3, from: 44.95, to: 47.72, el: (L, dur) => (
     <CTA dur={dur} y={1420} q="Berminat?" qGold={['Berminat']} label="KLIK LINK DI BIO" sub="TEMPAT TERHAD" icon="link" />
   )},
+  {id: '17c_CTA-BerminatKlikLinkDiBio', part: 3, from: 44.95, to: 47.72, el: (L, dur) => (
+    <CTA dur={dur} y={1440} label="BERMINAT? KLIK LINK DI BIO" icon="link" />
+  )},
   // ---------- END CARD (after part 3)
   {id: '18_EndCard-Summary', part: 0, from: 0, to: 6, el: (L, dur) => (
     <EndCard dur={dur} eyebrow="JOM SERTAI" title={'UMRAH\nRAMADAN'} sub="pahala menyamai haji bersama Nabi SAW" cta="KLIK LINK DI BAWAH" chip="PAKEJ SANGAT TERHAD"
