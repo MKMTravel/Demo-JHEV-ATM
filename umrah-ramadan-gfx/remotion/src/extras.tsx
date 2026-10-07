@@ -46,7 +46,7 @@ export const QuotePanel: React.FC<{dur: number; eyebrow: string; phrases: {t: st
 };
 
 // PRICE POP (punchy): halftone disc + big gold price with red flash + tilted sticker label + sparkles
-export const PricePop: React.FC<{dur: number; price: string; label: string; cx: number; cy: number; r?: number}> = ({dur, price, label, cx, cy, r = 300}) => {
+export const PricePop: React.FC<{dur: number; price: string; label: string; cx: number; cy: number; r?: number; size?: number}> = ({dur, price, label, cx, cy, r = 300, size = 190}) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const s = spring({frame: f - 2, fps, config: {damping: 9, stiffness: 190, mass: 0.7}});
@@ -57,7 +57,7 @@ export const PricePop: React.FC<{dur: number; price: string; label: string; cx: 
     <AbsoluteFill>
       <HalftoneDisc cx={cx} cy={cy} r={r} at={0} dur={dur} />
       <div style={{position: 'absolute', left: 0, width: 1080, top: cy, display: 'flex', justifyContent: 'center', transform: `translateX(${cx - 540}px) translateY(-50%) scale(${s * out * push}) rotate(${-4 + (1 - Math.min(s, 1)) * -12}deg)`, filter: POP_SHADOW}}>
-        <GoldWord t={price} size={190} flash={flash} />
+        <GoldWord t={price} size={size} flash={flash} />
       </div>
       <StickerLabel t={label} x={cx - 40} y={cy - r + 20} size={78} rot={-8} at={7} dur={dur} />
       <Sparkle x={cx + r - 30} y={cy - r + 60} size={70} at={10} dur={dur} />
