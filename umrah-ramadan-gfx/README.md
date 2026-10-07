@@ -35,6 +35,7 @@ Split files: put the parts back-to-back.
 - 11_C3-Hotel: part1 at 00:12.50, part2 at 00:16.20, part3 at 00:19.90 (Pt3)
 - 14_C4-PakejTermasuk: part1 at 00:32.55, part2 at 00:36.02 (Pt3)
 - 18_EndCard-Summary: part1 at 0.0s, part2 at 2.0s, part3 at 4.0s after the end of Pt3
+- 18b_EndCard-Summary-DiBio (option, "KLIK LINK DI BIO"): same timing as 18, use instead of 18
 
 Option: 17b says "KLIK LINK DI BIO" (link icon) instead of "KLIK LINK DI BAWAH". 17c is one pill reading "BERMINAT? KLIK LINK DI BIO". Use only one of 17 / 17b / 17c.
 

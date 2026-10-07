@@ -93,6 +93,10 @@ export const GFX: G[] = [
     <EndCard dur={dur} eyebrow="JOM SERTAI" title={'UMRAH\nRAMADAN'} sub="pahala menyamai haji bersama Nabi SAW" cta="KLIK LINK DI BAWAH" chip="PAKEJ SANGAT TERHAD"
       items={['Status PJH, Pengelola Jemaah Haji', 'Direct flight AMAL by Malaysia Airlines', 'Hotel dekat & selesa', 'Diskaun anak-anak RM2,000', '20+ tempat ziarah', 'Set bagasi & cenderahati percuma']} />
   )},
+  {id: '18b_EndCard-Summary-DiBio', part: 0, from: 0, to: 6, el: (L, dur) => (
+    <EndCard dur={dur} eyebrow="JOM SERTAI" title={'UMRAH\nRAMADAN'} sub="pahala menyamai haji bersama Nabi SAW" cta="KLIK LINK DI BIO" chip="PAKEJ SANGAT TERHAD" icon="link"
+      items={['Status PJH, Pengelola Jemaah Haji', 'Direct flight AMAL by Malaysia Airlines', 'Hotel dekat & selesa', 'Diskaun anak-anak RM2,000', '20+ tempat ziarah', 'Set bagasi & cenderahati percuma']} />
+  )},
 ];
 
 const mk = (g: G) => {
