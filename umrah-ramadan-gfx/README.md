@@ -27,12 +27,15 @@ The MOV files and the preview are not committed (too large). Re-render with `rem
 | 15_P6-Percuma.mov | Pt3 | 00:39.65 | 01:20.73 | 2.20s | normal |
 | 16_P7-SangatTerhad.mov | Pt3 | 00:42.05 | 01:23.13 | 2.70s | normal |
 | 17_CTA-KlikLink.mov | Pt3 | 00:44.95 | 01:26.03 | 2.77s | normal |
+| 17b_CTA-KlikLinkDiBio.mov (option) | Pt3 | 00:44.95 | 01:26.03 | 2.77s | normal |
 | 18_EndCard-Summary.mov | Selepas Pt3 | 00:00.00 | 01:28.79 | 6.00s | plate |
 
 Split files: put the parts back-to-back.
 - 11_C3-Hotel: part1 at 00:12.50, part2 at 00:16.20, part3 at 00:19.90 (Pt3)
 - 14_C4-PakejTermasuk: part1 at 00:32.55, part2 at 00:36.02 (Pt3)
 - 18_EndCard-Summary: part1 at 0.0s, part2 at 2.0s, part3 at 4.0s after the end of Pt3
+
+Option: 17b says "KLIK LINK DI BIO" (link icon) instead of "KLIK LINK DI BAWAH". Use 17 or 17b, not both.
 
 ## Hook layering in CapCut (bottom to top, all starting at Pt1 00:00.30)
 1. Pt1 video
